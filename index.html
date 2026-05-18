@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- SEO & Tags -->
   <title>Zulaiha Shazreena | Playful Geometric Creative Portfolio</title>
-  <meta name="description" content="Portfolio of Zulaiha Shazreena - Creative Frontend Engineer & Visual Specialist. Playful geometric designs with bold grids, active sticker systems, and high contrast accessibility.">
-  <meta name="keywords" content="Zulaiha Shazreena, Frontend Engineer, Memphis Design, Playful Portfolio, UI/UX Designer, Javascript Developer">
+  <meta name="description"
+    content="Portfolio of Zulaiha Shazreena - Creative Frontend Engineer & Visual Specialist. Playful geometric designs with bold grids, active sticker systems, and high contrast accessibility.">
+  <meta name="keywords"
+    content="Zulaiha Shazreena, Frontend Engineer, Memphis Design, Playful Portfolio, UI/UX Designer, Javascript Developer">
   <meta name="author" content="Zulaiha Shazreena">
-  
+
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  
+
   <!-- Integrated Styling Tokens & Layout Systems (from style.css) -->
   <style>
     /* ==========================================================================
@@ -28,33 +31,33 @@
       --fg-slate: #1E293B;
       --muted-slate: #F1F5F9;
       --muted-fg: #64748B;
-      
+
       /* Vibrant Accents */
       --accent-violet: #8B5CF6;
       --accent-fg: #FFFFFF;
       --secondary-pink: #F472B6;
       --tertiary-amber: #FBBF24;
       --quaternary-mint: #34D399;
-      
+
       --border-color: #1E293B;
       --border-width: 2px;
-      
+
       /* Dot grid config */
       --dot-color: rgba(30, 41, 59, 0.08);
-      
+
       /* Corner Radii */
       --radius-sm: 8px;
       --radius-md: 16px;
       --radius-lg: 24px;
       --radius-full: 9999px;
-      
+
       /* Hard Shadows (Memphis Style) */
       --shadow-pop: 4px 4px 0px 0px var(--border-color);
       --shadow-pop-hover: 6px 6px 0px 0px var(--border-color);
       --shadow-pop-active: 2px 2px 0px 0px var(--border-color);
       --shadow-pop-lg: 8px 8px 0px 0px var(--border-color);
       --shadow-pop-lg-hover: 12px 12px 0px 0px var(--border-color);
-      
+
       /* Spacing */
       --container-width: 1200px;
       --transition-bounce: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -67,15 +70,15 @@
       --fg-slate: #FFFDF5;
       --muted-slate: #1E293B;
       --muted-fg: #94A3B8;
-      
+
       --accent-violet: #A78BFA;
       --secondary-pink: #F472B6;
       --tertiary-amber: #FCD34D;
       --quaternary-mint: #34D399;
-      
+
       --border-color: #FFFDF5;
       --dot-color: rgba(255, 253, 245, 0.08);
-      
+
       --shadow-pop: 4px 4px 0px 0px var(--border-color);
       --shadow-pop-hover: 6px 6px 0px 0px var(--border-color);
       --shadow-pop-active: 2px 2px 0px 0px var(--border-color);
@@ -84,7 +87,9 @@
     }
 
     /* --- Global Resets & Scrollbars --- */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -107,15 +112,18 @@
     ::-webkit-scrollbar {
       width: 14px;
     }
+
     ::-webkit-scrollbar-track {
       background: var(--bg-cream);
       border-left: var(--border-width) solid var(--border-color);
     }
+
     ::-webkit-scrollbar-thumb {
       background: var(--accent-violet);
       border: var(--border-width) solid var(--border-color);
       border-radius: var(--radius-full);
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: var(--secondary-pink);
     }
@@ -127,7 +135,12 @@
     }
 
     /* --- Typography --- */
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-family: 'Outfit', system-ui, -apple-system, sans-serif;
       font-weight: 800;
       letter-spacing: -0.02em;
@@ -135,10 +148,23 @@
       color: var(--fg-slate);
     }
 
-    h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
-    h2 { font-size: clamp(2rem, 4vw, 3rem); }
-    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-    p { font-weight: 500; font-size: clamp(1rem, 2vw, 1.125rem); color: var(--fg-slate); }
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    p {
+      font-weight: 500;
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: var(--fg-slate);
+    }
 
     .highlight-pink {
       background-color: var(--secondary-pink);
@@ -486,7 +512,7 @@
       border-radius: var(--radius-md);
       border: var(--border-width) solid var(--border-color);
       z-index: 2;
-      box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+      box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
       background-color: var(--muted-slate);
     }
 
@@ -505,7 +531,8 @@
       height: 60px;
       background-color: var(--secondary-pink);
       border: var(--border-width) solid var(--border-color);
-      border-radius: 50% 50% 50% 0; /* Leaf blob */
+      border-radius: 50% 50% 50% 0;
+      /* Leaf blob */
       animation-delay: 0.5s;
     }
 
@@ -626,9 +653,17 @@
       border: var(--border-width) solid var(--border-color);
     }
 
-    .sandbox-dot:nth-child(1) { background-color: var(--secondary-pink); }
-    .sandbox-dot:nth-child(2) { background-color: var(--tertiary-amber); }
-    .sandbox-dot:nth-child(3) { background-color: var(--quaternary-mint); }
+    .sandbox-dot:nth-child(1) {
+      background-color: var(--secondary-pink);
+    }
+
+    .sandbox-dot:nth-child(2) {
+      background-color: var(--tertiary-amber);
+    }
+
+    .sandbox-dot:nth-child(3) {
+      background-color: var(--quaternary-mint);
+    }
 
     .sandbox-title {
       font-family: 'Outfit', sans-serif;
@@ -710,9 +745,20 @@
       box-shadow: 4px 4px 0px var(--border-color);
     }
 
-    .skill-badge:nth-child(3n+1) { background-color: var(--secondary-pink); color: var(--bg-cream); }
-    .skill-badge:nth-child(3n+2) { background-color: var(--tertiary-amber); color: var(--border-color); }
-    .skill-badge:nth-child(3n+3) { background-color: var(--quaternary-mint); color: var(--border-color); }
+    .skill-badge:nth-child(3n+1) {
+      background-color: var(--secondary-pink);
+      color: var(--bg-cream);
+    }
+
+    .skill-badge:nth-child(3n+2) {
+      background-color: var(--tertiary-amber);
+      color: var(--border-color);
+    }
+
+    .skill-badge:nth-child(3n+3) {
+      background-color: var(--quaternary-mint);
+      color: var(--border-color);
+    }
 
     /* --- FEATURED PROJECTS --- */
     .section-header {
@@ -940,7 +986,7 @@
       text-align: center;
       transform: rotate(15deg);
       z-index: 20;
-      box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15);
     }
 
     .service-title-container {
@@ -1044,7 +1090,8 @@
       color: var(--fg-slate);
     }
 
-    .form-input, .form-textarea {
+    .form-input,
+    .form-textarea {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-cream);
       border: var(--border-width) solid var(--border-color);
@@ -1058,7 +1105,8 @@
       transition: var(--transition-bounce);
     }
 
-    .form-input:focus, .form-textarea:focus {
+    .form-input:focus,
+    .form-textarea:focus {
       border-color: var(--accent-violet);
       box-shadow: 4px 4px 0px var(--accent-violet);
       transform: translate(-2px, -2px);
@@ -1104,7 +1152,7 @@
       background-color: var(--muted-slate);
       border: var(--border-width) solid var(--border-color);
       border-radius: var(--radius-lg);
-      box-shadow: inset 4px 4px 0px rgba(0,0,0,0.05), var(--shadow-pop);
+      box-shadow: inset 4px 4px 0px rgba(0, 0, 0, 0.05), var(--shadow-pop);
       min-height: 480px;
       padding: 32px;
       position: relative;
@@ -1153,10 +1201,21 @@
     }
 
     /* Colorful sticky variations */
-    .sticky-note.bg-pink { background-color: #FBCFE8; }
-    .sticky-note.bg-violet { background-color: #DDD6FE; }
-    .sticky-note.bg-amber { background-color: #FDE68A; }
-    .sticky-note.bg-mint { background-color: #A7F3D0; }
+    .sticky-note.bg-pink {
+      background-color: #FBCFE8;
+    }
+
+    .sticky-note.bg-violet {
+      background-color: #DDD6FE;
+    }
+
+    .sticky-note.bg-amber {
+      background-color: #FDE68A;
+    }
+
+    .sticky-note.bg-mint {
+      background-color: #A7F3D0;
+    }
 
     .sticky-emoji {
       position: absolute;
@@ -1514,25 +1573,58 @@
 
     /* --- ANIMATIONS & PULSES --- */
     @keyframes float {
-      0% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(2deg); }
-      100% { transform: translateY(5px) rotate(-1deg); }
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(2deg);
+      }
+
+      100% {
+        transform: translateY(5px) rotate(-1deg);
+      }
     }
 
     @keyframes scrollMarquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     @keyframes popIn {
-      0% { transform: scale(0) rotate(-15deg); opacity: 0; }
-      70% { transform: scale(1.1) rotate(5deg); opacity: 0.9; }
-      100% { transform: scale(1) rotate(var(--rand-rot, 0deg)); opacity: 1; }
+      0% {
+        transform: scale(0) rotate(-15deg);
+        opacity: 0;
+      }
+
+      70% {
+        transform: scale(1.1) rotate(5deg);
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: scale(1) rotate(var(--rand-rot, 0deg));
+        opacity: 1;
+      }
     }
 
     @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.5; }
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+      }
     }
 
     /* --- RESPONSIVE STRATEGY --- */
@@ -1542,45 +1634,45 @@
         text-align: center;
         gap: 36px;
       }
-      
+
       .hero-content::before {
         left: 50%;
         transform: translateX(-50%);
         top: -20px;
       }
-      
+
       .hero-desc {
         margin-left: auto;
         margin-right: auto;
       }
-      
+
       .hero-buttons {
         justify-content: center;
       }
-      
+
       .about-wrapper {
         grid-template-columns: 1fr;
         gap: 40px;
       }
-      
+
       .guestbook-wrapper {
         grid-template-columns: 1fr;
         gap: 40px;
       }
-      
+
       .contact-wrapper {
         grid-template-columns: 1fr;
       }
-      
+
       .contact-info-panel {
         border-right: none;
         border-bottom: var(--border-width) solid var(--border-color);
       }
-      
+
       .service-card.featured {
         transform: none;
       }
-      
+
       .service-card.featured:hover {
         transform: translateY(-4px);
       }
@@ -1593,27 +1685,29 @@
         --shadow-pop-active: 1px 1px 0px 0px var(--border-color);
         --shadow-pop-lg: 4px 4px 0px 0px var(--border-color);
       }
-      
+
       .navbar {
         top: 12px;
       }
-      
+
       .nav-container {
         padding: 10px 20px;
       }
-      
+
       .nav-links {
-        display: none; /* Simplified responsive design */
+        display: none;
+        /* Simplified responsive design */
       }
-      
+
       .section {
         padding: 60px 0;
       }
-      
+
       .floating-shape {
-        display: none; /* Hide background decorative shapes */
+        display: none;
+        /* Hide background decorative shapes */
       }
-      
+
       .featured-badge {
         top: -16px;
         right: -16px;
@@ -1625,6 +1719,7 @@
     }
   </style>
 </head>
+
 <body class="bg-dot-grid">
 
   <!-- ==================== STICKER NAVIGATION ==================== -->
@@ -1634,14 +1729,13 @@
         <span class="logo-dot"></span>
         ZULAIHA.DEV
       </a>
-      
+
       <ul class="nav-links">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#guestbook" class="nav-link">Guestbook</a></li>
       </ul>
-      
+
       <div class="nav-actions">
         <!-- Vibe switch toggle button -->
         <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme Vibe" title="Switch Theme Vibe">
@@ -1667,7 +1761,9 @@
           <span class="highlight-pink">Wild Decoration.</span>
         </h1>
         <p class="hero-desc">
-          Hello! I'm <strong>Zulaiha Shazreena</strong>. I design and build highly tactile digital playgrounds. By mixing robust functional grids with cheerful geometric shapes, I turn interfaces into interactive sticker books.
+          Hello! I'm <strong>Zulaiha Shazreena</strong>. I design and build highly tactile digital playgrounds. By
+          mixing robust functional grids with cheerful geometric shapes, I turn interfaces into interactive sticker
+          books.
         </p>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-primary">
@@ -1679,13 +1775,13 @@
           <a href="#contact" class="btn btn-secondary">Let's Chat!</a>
         </div>
       </div>
-      
+
       <div class="hero-visual">
         <!-- Floating Primitive Elements -->
         <div class="floating-shape shape-1"></div>
         <div class="floating-shape shape-2"></div>
         <div class="floating-shape shape-3"></div>
-        
+
         <!-- Portrait sticker frame -->
         <div class="portrait-frame">
           <div class="portrait-bg"></div>
@@ -1705,7 +1801,7 @@
       <div class="marquee-item"><span class="marquee-symbol"></span>LIGHTHOUSE 100%</div>
       <div class="marquee-item"><span class="marquee-symbol star"></span>ACCESSIBLE CORE</div>
       <div class="marquee-item"><span class="marquee-symbol"></span>TACTILE WEB</div>
-      
+
       <!-- Duplicate for infinite scrolling -->
       <div class="marquee-item"><span class="marquee-symbol"></span>CREATIVE ENGINEER</div>
       <div class="marquee-item"><span class="marquee-symbol star"></span>MEMPHIS STYLIST</div>
@@ -1724,12 +1820,15 @@
         <div class="section-tag">About Me</div>
         <h2 class="section-title" style="margin-bottom: 24px;">Designing with optimism, clarity, & tactile fun.</h2>
         <p>
-          I am a visual design specialist and modern developer who believes digital interfaces shouldn't be boring, flat sheets. Inspired by the bold energy of the 80s <strong>Memphis Group</strong> and the cleanliness of modern UI engineering, I cultivate interactive workspaces that user clickers love.
+          I am a visual design specialist and modern developer who believes digital interfaces shouldn't be boring, flat
+          sheets. Inspired by the bold energy of the 80s <strong>Memphis Group</strong> and the cleanliness of modern UI
+          engineering, I cultivate interactive workspaces that user clickers love.
         </p>
         <p>
-          Beyond writing strict semantic code and high-performance layouts, my core focus is building emotional connections through subtle bounciness, elastic motion, and deep micro-interactivity.
+          Beyond writing strict semantic code and high-performance layouts, my core focus is building emotional
+          connections through subtle bounciness, elastic motion, and deep micro-interactivity.
         </p>
-        
+
         <h3 style="margin-top: 36px; margin-bottom: 16px;">My Sticker Badges</h3>
         <div class="skill-badges">
           <div class="skill-badge"><i data-lucide="code-2"></i>HTML5 / CSS3</div>
@@ -1741,7 +1840,7 @@
           <div class="skill-badge"><i data-lucide="terminal"></i>System Architecture</div>
         </div>
       </div>
-      
+
       <!-- The Stamp sandbox board -->
       <div class="sandbox-card">
         <div class="sandbox-header">
@@ -1768,135 +1867,33 @@
     <div class="section-header">
       <div class="section-tag">Portfolio</div>
       <h2 class="section-title">Visual masterworks & interactive tools</h2>
-      <p style="color: var(--muted-fg)">A handpicked collection of applications built with geometric structural logic and rich motion properties.</p>
+      <p style="color: var(--muted-fg)">A handpicked collection of applications built with geometric structural logic
+        and rich motion properties.</p>
     </div>
-    
+
     <div class="projects-grid">
       <!-- Project 1 -->
-      <div class="sticker-card" data-project="memphis-builder">
-        <div class="card-icon-container">
-          <i data-lucide="grid-3x3" class="card-icon" style="width: 24px; height: 24px; stroke-width: 2.5px;"></i>
-        </div>
-        <div class="card-meta">
-          <span class="card-category">Visual Tool</span>
-          <span class="card-year">2026</span>
-        </div>
-        <h3 class="card-title">Neo-Memphis Grid Builder</h3>
-        <p class="card-desc">An interactive visual layout builder powered by HSL-driven coloring, absolute drag-and-drop geometric shapes, and dynamic export capabilities.</p>
-        <div class="card-tags">
-          <span class="card-tag">Vanilla JS</span>
-          <span class="card-tag">CSS Grid</span>
-          <span class="card-tag">SVG Stamp</span>
-        </div>
-        <div class="card-cta">
-          Inspect Case Study
-          <i data-lucide="arrow-up-right" style="width: 18px; height: 18px; stroke-width: 3px;"></i>
-        </div>
-      </div>
-      
-      <!-- Project 2 -->
-      <div class="sticker-card" data-project="supaquest">
-        <div class="card-icon-container" style="background-color: var(--secondary-pink);">
-          <i data-lucide="check-square" class="card-icon" style="width: 24px; height: 24px; stroke-width: 2.5px; color: white;"></i>
-        </div>
-        <div class="card-meta">
-          <span class="card-category">App Design</span>
-          <span class="card-year">2025</span>
-        </div>
-        <h3 class="card-title">SupaQuest Productivity Sandbox</h3>
-        <p class="card-desc">A playful, stickered note-taking canvas and high-tactility tracker that converts dry schedules into interactive sticker book quests.</p>
-        <div class="card-tags">
-          <span class="card-tag">UI Engineering</span>
-          <span class="card-tag">Animation</span>
-          <span class="card-tag">JSON Store</span>
-        </div>
-        <div class="card-cta">
-          Inspect Case Study
-          <i data-lucide="arrow-up-right" style="width: 18px; height: 18px; stroke-width: 3px;"></i>
-        </div>
-      </div>
-      
-      <!-- Project 3 -->
-      <div class="sticker-card" data-project="retrosynth">
-        <div class="card-icon-container" style="background-color: var(--tertiary-amber);">
-          <i data-lucide="music" class="card-icon" style="width: 24px; height: 24px; stroke-width: 2.5px;"></i>
-        </div>
-        <div class="card-meta">
-          <span class="card-category">Audio Widget</span>
-          <span class="card-year">2025</span>
-        </div>
-        <h3 class="card-title">RetroSynth Audio Soundboard</h3>
-        <p class="card-desc">A fully synthesised retro wave audio soundboard designed with elastic keys, responsive canvas wiggles, and interactive custom keyboard maps.</p>
-        <div class="card-tags">
-          <span class="card-tag">Web Audio API</span>
-          <span class="card-tag">HTML Canvas</span>
-          <span class="card-tag">Elastic CSS</span>
-        </div>
-        <div class="card-cta">
-          Inspect Case Study
-          <i data-lucide="arrow-up-right" style="width: 18px; height: 18px; stroke-width: 3px;"></i>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="project-card">
 
-  <!-- ==================== SERVICES SECTION ==================== -->
-  <section class="container section" id="services">
-    <div class="section-header">
-      <div class="section-tag">Services</div>
-      <h2 class="section-title">Stable services, wild execution</h2>
-      <p style="color: var(--muted-fg)">Available packages designed to kickstart your creative visual products and upgrade digital interfaces.</p>
-    </div>
-    
-    <div class="services-grid">
-      <!-- Tier 1 -->
-      <div class="service-card">
-        <div class="service-title-container">
-          <span class="service-tier">Visual Blueprint</span>
-          <div class="service-price">$450<span>/ project</span></div>
+        <img src="sistem1.png" alt="E-AlatSukan">
+
+        <div class="project-info">
+
+          <h3>E-AlatSukan</h3>
+
+          <p>
+            Sports equipment booking and inventory management system
+            developed using HTML, CSS, JavaScript, PHP and MySQL.
+          </p>
+
+          <a href="https://github.com/shazreenazulaiha/e_alatsukan" target="_blank">
+            View Project
+          </a>
+
         </div>
-        <p class="service-desc">Complete interactive visual audits and customized Memphis system token guidelines for your company.</p>
-        <ul class="service-features">
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Brand Color Auditing</li>
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> 3 Unique Component Assets</li>
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Typography Hierarchy System</li>
-          <li class="service-feature" style="color: var(--muted-fg);"><div class="service-check" style="background-color: var(--muted-slate); opacity: 0.5;"><i data-lucide="minus" style="width: 14px; height: 14px;"></i></div> Custom JavaScript Animation</li>
-        </ul>
-        <a href="#contact" class="btn btn-secondary" style="margin-top: 16px;">Acquire Package</a>
+
       </div>
-      
-      <!-- Tier 2 - FEATURED (MOST POPULAR) -->
-      <div class="service-card featured">
-        <div class="featured-badge">Pop! Popular</div>
-        <div class="service-title-container">
-          <span class="service-tier">Interactive Dev</span>
-          <div class="service-price" style="color: var(--secondary-pink);">$950<span>/ project</span></div>
-        </div>
-        <p class="service-desc">Full-scale frontend design and deployment utilizing high-fidelity stamp sandboxes, micro-animations, and complete responsiveness.</p>
-        <ul class="service-features">
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> 5 Custom Designed Sections</li>
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> High-Contrast Theme System</li>
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Custom Bouncy Interactivity</li>
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Complete WCAG Accessibility</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" style="margin-top: 16px; background-color: var(--secondary-pink);">Acquire Package</a>
-      </div>
-      
-      <!-- Tier 3 -->
-      <div class="service-card">
-        <div class="service-title-container">
-          <span class="service-tier">Full Web Identity</span>
-          <div class="service-price">$1,800<span>/ project</span></div>
-        </div>
-        <p class="service-desc">Complete corporate rebrand strategy combined with beautiful interactive frontend products built from ground zero.</p>
-        <ul class="service-features">
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Unlimited Component Styles</li>
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Interactive Toybox Sandbox</li>
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> LocalStorage DB integrations</li>
-          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> 1-Month Engineering Support</li>
-        </ul>
-        <a href="#contact" class="btn btn-secondary" style="margin-top: 16px;">Acquire Package</a>
-      </div>
+
     </div>
   </section>
 
@@ -1905,23 +1902,26 @@
     <div class="section-header">
       <div class="section-tag" style="background-color: var(--secondary-pink); color: white;">Bulletin</div>
       <h2 class="section-title">Sign the Guestbook Board</h2>
-      <p style="color: var(--muted-fg)">Leave your sticker message on my visual bulletin board! Your details are stored in your active browser context.</p>
+      <p style="color: var(--muted-fg)">Leave your sticker message on my visual bulletin board! Your details are stored
+        in your active browser context.</p>
     </div>
-    
+
     <div class="guestbook-wrapper">
       <!-- Guestbook Form -->
       <div class="guestbook-card">
         <form id="guestbook-form" autocomplete="off">
           <div class="form-group">
             <label for="guest-name" class="form-label">Your Moniker</label>
-            <input type="text" id="guest-name" class="form-input" placeholder="e.g. Captain Spark" required maxlength="25">
+            <input type="text" id="guest-name" class="form-input" placeholder="e.g. Captain Spark" required
+              maxlength="25">
           </div>
-          
+
           <div class="form-group">
             <label for="guest-msg" class="form-label">Sticker Message</label>
-            <textarea id="guest-msg" class="form-textarea" placeholder="Write a nice greeting..." required maxlength="120"></textarea>
+            <textarea id="guest-msg" class="form-textarea" placeholder="Write a nice greeting..." required
+              maxlength="120"></textarea>
           </div>
-          
+
           <div class="form-group">
             <label class="form-label">Choose Sticker Avatar</label>
             <div class="sticker-selector">
@@ -1932,7 +1932,7 @@
               <span class="sticker-option" data-emoji="🍕">🍕</span>
             </div>
           </div>
-          
+
           <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
             Stamp Bulletin
             <div class="btn-icon-wrapper">
@@ -1941,7 +1941,7 @@
           </button>
         </form>
       </div>
-      
+
       <!-- Bulletin Board display area -->
       <div class="bulletin-board" id="bulletin-board">
         <!-- Sticky notes will load here dynamically via Javascript -->
@@ -1957,28 +1957,31 @@
   <!-- ==================== CONTACT PANEL ==================== -->
   <section class="container section" id="contact" style="border-bottom: none;">
     <div class="section-header">
-      <div class="section-tag" style="background-color: var(--tertiary-amber); color: var(--border-color);">Connection</div>
+      <div class="section-tag" style="background-color: var(--tertiary-amber); color: var(--border-color);">Connection
+      </div>
       <h2 class="section-title">Let's craft visual masterworks</h2>
-      <p style="color: var(--muted-fg)">Have a fascinating project or a design system challenge? Get in touch and let's construct together.</p>
+      <p style="color: var(--muted-fg)">Have a fascinating project or a design system challenge? Get in touch and let's
+        construct together.</p>
     </div>
-    
+
     <div class="contact-wrapper">
       <!-- Details Panel -->
       <div class="contact-info-panel">
         <div class="contact-info-content">
           <h3 class="contact-info-title">Zulaiha Shazreena</h3>
           <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem;">
-            Always excited to partner with clients who love bright typography, bold geometry, and tactile interfaces. Let's make the internet fun again!
+            Always excited to partner with clients who love bright typography, bold geometry, and tactile interfaces.
+            Let's make the internet fun again!
           </p>
-          
+
           <div class="contact-details">
             <div class="contact-item">
               <div class="contact-icon-circle">
                 <i data-lucide="mail" style="width: 20px; height: 20px;"></i>
               </div>
-              <span>shazreena.zulaiha@gmail.com</span>
+              <span>shazreenazulaiha@gmail.com</span>
             </div>
-            
+
             <div class="contact-item">
               <div class="contact-icon-circle">
                 <i data-lucide="map-pin" style="width: 20px; height: 20px;"></i>
@@ -1987,7 +1990,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="social-links" style="margin-top: auto; position: relative; z-index: 2;">
           <a href="#" class="social-link" aria-label="GitHub"><i data-lucide="github"></i></a>
           <a href="#" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
@@ -1995,25 +1998,27 @@
           <a href="#" class="social-link" aria-label="Dribbble"><i data-lucide="dribbble"></i></a>
         </div>
       </div>
-      
+
       <!-- Form Panel -->
       <div class="contact-form-panel">
-        <form id="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();" autocomplete="off">
+        <form id="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();"
+          autocomplete="off">
           <div class="form-group">
             <label for="contact-name" class="form-label">Full Name</label>
             <input type="text" id="contact-name" class="form-input" placeholder="Zulaiha Shazreena" required>
           </div>
-          
+
           <div class="form-group">
             <label for="contact-email" class="form-label">Email Address</label>
             <input type="email" id="contact-email" class="form-input" placeholder="you@company.com" required>
           </div>
-          
+
           <div class="form-group">
             <label for="contact-message" class="form-label">Project Brief</label>
-            <textarea id="contact-message" class="form-textarea" placeholder="Tell me a bit about your visual ambitions..." required></textarea>
+            <textarea id="contact-message" class="form-textarea"
+              placeholder="Tell me a bit about your visual ambitions..." required></textarea>
           </div>
-          
+
           <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
             Transmit Message
             <div class="btn-icon-wrapper">
@@ -2030,10 +2035,10 @@
     <div class="container footer-wrapper">
       <div class="footer-left">
         <p class="footer-credits">
-          &copy; <span id="year-container">2026</span> ZULAIHA.DEV • Made with ⚡ and geometric grids.
+          &copy; <span id="year-container">2026</span> SHAZREENA.DEV • Made with ⚡ and geometric grids.
         </p>
       </div>
-      
+
       <div class="footer-right">
         <!-- Live Kuala Lumpur local clock -->
         <div class="timezone-widget">
@@ -2041,7 +2046,7 @@
           <span>KL, MY: </span>
           <span id="live-time">12:00:00 PM</span>
         </div>
-        
+
         <button class="scroll-top-btn" id="scroll-top" aria-label="Scroll back to top">
           <i data-lucide="arrow-up" style="width: 20px; height: 20px; stroke-width: 3px;"></i>
         </button>
@@ -2055,12 +2060,12 @@
       <button class="modal-close-btn" id="modal-close" aria-label="Close Case Study" title="Close Overlay">
         <i data-lucide="x" style="width: 20px; height: 20px; stroke-width: 3px;"></i>
       </button>
-      
+
       <div class="modal-img-container">
         <div class="portrait-bg"></div>
         <img src="" alt="Project Preview Image" class="modal-img" id="modal-img">
       </div>
-      
+
       <div class="modal-body">
         <div class="modal-header-meta">
           <span class="card-category" id="modal-category" style="color: var(--accent-violet);"></span>
@@ -2069,7 +2074,7 @@
         <h2 class="modal-title" id="modal-title"></h2>
         <div class="modal-tags" id="modal-tags"></div>
         <p class="modal-text" id="modal-desc"></p>
-        
+
         <div class="modal-action-footer">
           <a href="#" class="btn btn-primary" id="modal-live-btn" target="_blank">
             Access Application
@@ -2097,7 +2102,7 @@
       // --- 1. LIGHT / DARK VIBE TOGGLE SYSTEM ---
       const themeToggleBtn = document.getElementById('theme-toggle');
       const themeThumb = document.getElementById('theme-thumb');
-      
+
       // Load saved theme or check preferences
       const savedTheme = localStorage.getItem('vibe-theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
@@ -2106,7 +2111,7 @@
       themeToggleBtn.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
+
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('vibe-theme', newTheme);
         updateThemeIcon(newTheme);
@@ -2139,7 +2144,7 @@
       // --- 3. LIVE KUALA LUMPUR TIMEZONE CLOCK ---
       const liveTimeEl = document.getElementById('live-time');
       const yearContainer = document.getElementById('year-container');
-      
+
       if (yearContainer) {
         yearContainer.textContent = new Date().getFullYear();
       }
@@ -2157,7 +2162,7 @@
           liveTimeEl.textContent = klTimeStr;
         }
       }
-      
+
       updateMalaysiaTime();
       setInterval(updateMalaysiaTime, 1000);
 
@@ -2222,8 +2227,8 @@
         // Create wrapper div
         const shapeEl = document.createElement('div');
         shapeEl.className = 'stamped-shape';
-        shapeEl.style.left = `${x - size/2}px`;
-        shapeEl.style.top = `${y - size/2}px`;
+        shapeEl.style.left = `${x - size / 2}px`;
+        shapeEl.style.top = `${y - size / 2}px`;
         shapeEl.style.setProperty('--rand-rot', `${rotation}deg`);
         shapeEl.style.filter = `drop-shadow(${popShadow}px ${popShadow}px 0px var(--border-color))`;
         shapeEl.style.cursor = 'pointer';
@@ -2253,7 +2258,7 @@
       const bulletinBoard = document.getElementById('bulletin-board');
       const bulletinEmpty = document.getElementById('bulletin-empty');
       const stickerOptions = document.querySelectorAll('.sticker-option');
-      
+
       let selectedEmoji = '⚡';
       let guestbookEntries = JSON.parse(localStorage.getItem('guestbook-stickies')) || [];
 
@@ -2276,7 +2281,7 @@
         e.preventDefault();
         const nameVal = document.getElementById('guest-name').value.trim();
         const msgVal = document.getElementById('guest-msg').value.trim();
-        
+
         if (!nameVal || !msgVal) return;
 
         // Create entry model
@@ -2319,7 +2324,7 @@
           note.className = `sticky-note ${entry.colorClass}`;
           note.style.setProperty('--rand-rot', `${entry.rotation}deg`);
           note.style.transform = `rotate(${entry.rotation}deg)`;
-          
+
           note.innerHTML = `
             <div class="sticky-emoji">${entry.emoji}</div>
             <div class="sticky-text">"${escapeHTML(entry.message)}"</div>
@@ -2358,7 +2363,7 @@
       const projectModal = document.getElementById('project-modal');
       const modalClose = document.getElementById('modal-close');
       const modalCloseSecondary = document.getElementById('modal-close-secondary');
-      
+
       const modalImg = document.getElementById('modal-img');
       const modalCategory = document.getElementById('modal-category');
       const modalYear = document.getElementById('modal-year');
@@ -2402,7 +2407,7 @@
         card.addEventListener('click', () => {
           const projKey = card.getAttribute('data-project');
           const data = projectDb[projKey];
-          
+
           if (!data) return;
 
           // Populate Modal details
@@ -2444,7 +2449,7 @@
           closeModal();
         }
       });
-      
+
       // Close on Escape key
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && projectModal.classList.contains('active')) {
@@ -2463,4 +2468,5 @@
     });
   </script>
 </body>
+
 </html>
