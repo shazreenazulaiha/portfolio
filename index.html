@@ -1,229 +1,2466 @@
-<role>
-You are an expert frontend engineer, UI/UX designer, visual design specialist, and typography expert. Your goal is to help the user integrate a design system into an existing codebase in a way that is visually consistent, maintainable, and idiomatic to their tech stack.
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & Tags -->
+  <title>Zulaiha Shazreena | Playful Geometric Creative Portfolio</title>
+  <meta name="description" content="Portfolio of Zulaiha Shazreena - Creative Frontend Engineer & Visual Specialist. Playful geometric designs with bold grids, active sticker systems, and high contrast accessibility.">
+  <meta name="keywords" content="Zulaiha Shazreena, Frontend Engineer, Memphis Design, Playful Portfolio, UI/UX Designer, Javascript Developer">
+  <meta name="author" content="Zulaiha Shazreena">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Integrated Styling Tokens & Layout Systems (from style.css) -->
+  <style>
+    /* ==========================================================================
+       PLAYFUL GEOMETRIC DESIGN SYSTEM (MEMPHIS-MODERN)
+       Custom Portfolio for Zulaiha Shazreena
+       ========================================================================== */
 
-Before proposing or writing any code, first build a clear mental model of the current system:
-- Identify the tech stack (e.g. React, Next.js, Vue, Tailwind, shadcn/ui, etc.).
-- Understand the existing design tokens (colors, spacing, typography, radii, shadows), global styles, and utility patterns.
-- Review the current component architecture (atoms/molecules/organisms, layout primitives, etc.) and naming conventions.
-- Note any constraints (legacy CSS, design library in use, performance or bundle-size considerations).
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
-Ask the user focused questions to understand the user's goals. Do they want:
-- a specific component or page redesigned in the new style,
-- existing components refactored to the new system, or
-- new pages/features built entirely in the new style?
+    /* --- Theme Design Tokens --- */
+    :root {
+      --bg-cream: #FFFDF5;
+      --fg-slate: #1E293B;
+      --muted-slate: #F1F5F9;
+      --muted-fg: #64748B;
+      
+      /* Vibrant Accents */
+      --accent-violet: #8B5CF6;
+      --accent-fg: #FFFFFF;
+      --secondary-pink: #F472B6;
+      --tertiary-amber: #FBBF24;
+      --quaternary-mint: #34D399;
+      
+      --border-color: #1E293B;
+      --border-width: 2px;
+      
+      /* Dot grid config */
+      --dot-color: rgba(30, 41, 59, 0.08);
+      
+      /* Corner Radii */
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      
+      /* Hard Shadows (Memphis Style) */
+      --shadow-pop: 4px 4px 0px 0px var(--border-color);
+      --shadow-pop-hover: 6px 6px 0px 0px var(--border-color);
+      --shadow-pop-active: 2px 2px 0px 0px var(--border-color);
+      --shadow-pop-lg: 8px 8px 0px 0px var(--border-color);
+      --shadow-pop-lg-hover: 12px 12px 0px 0px var(--border-color);
+      
+      /* Spacing */
+      --container-width: 1200px;
+      --transition-bounce: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --transition-smooth: all 0.2s ease-in-out;
+    }
 
-Once you understand the context and scope, do the following:
-- Propose a concise implementation plan that follows best practices, prioritizing:
-  - centralizing design tokens,
-  - reusability and composability of components,
-  - minimizing duplication and one-off styles,
-  - long-term maintainability and clear naming.
-- When writing code, match the user’s existing patterns (folder structure, naming, styling approach, and component patterns).
-- Explain your reasoning briefly as you go, so the user understands *why* you’re making certain architectural or design choices.
+    /* --- Dark Theme Overrides (Neon Midnight) --- */
+    [data-theme="dark"] {
+      --bg-cream: #0B0F19;
+      --fg-slate: #FFFDF5;
+      --muted-slate: #1E293B;
+      --muted-fg: #94A3B8;
+      
+      --accent-violet: #A78BFA;
+      --secondary-pink: #F472B6;
+      --tertiary-amber: #FCD34D;
+      --quaternary-mint: #34D399;
+      
+      --border-color: #FFFDF5;
+      --dot-color: rgba(255, 253, 245, 0.08);
+      
+      --shadow-pop: 4px 4px 0px 0px var(--border-color);
+      --shadow-pop-hover: 6px 6px 0px 0px var(--border-color);
+      --shadow-pop-active: 2px 2px 0px 0px var(--border-color);
+      --shadow-pop-lg: 8px 8px 0px 0px var(--border-color);
+      --shadow-pop-lg-hover: 12px 12px 0px 0px var(--border-color);
+    }
 
-Always aim to:
-- Preserve or improve accessibility.
-- Maintain visual consistency with the provided design system.
-- Leave the codebase in a cleaner, more coherent state than you found it.
-- Ensure layouts are responsive and usable across devices.
-- Make deliberate, creative design choices (layout, motion, interaction details, and typography) that express the design system’s personality instead of producing a generic or boilerplate UI.
+    /* --- Global Resets & Scrollbars --- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-</role>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<design-system>
-# Playful Geometric Design System
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--fg-slate);
+      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-## Design Philosophy
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 14px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-cream);
+      border-left: var(--border-width) solid var(--border-color);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-violet);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary-pink);
+    }
 
-**Playful Geometric** is the antidote to sterile, corporate minimalism. It creates an emotional connection through **optimism, clarity, and tactile fun**.
+    /* --- Textures & Patterns --- */
+    .bg-dot-grid {
+      background-image: radial-gradient(var(--dot-color) 2px, transparent 2px);
+      background-size: 24px 24px;
+    }
 
-The core concept is **"Stable Grid, Wild Decoration"**. The content itself (text, forms) lives in clean, readable areas, but the world around it is alive with movement and shape. It references the **Memphis Group** (80s) but cleans it up for modern digital screens—removing the chaos while keeping the energy.
+    /* --- Typography --- */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--fg-slate);
+    }
 
-### The Vibe
-**Friendly. Tactile. Pop. Energetic.**
-It feels like a playground or a well-organized sticker book. It invites clicking. It smiles at you.
+    h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    p { font-weight: 500; font-size: clamp(1rem, 2vw, 1.125rem); color: var(--fg-slate); }
 
-### Visual Signatures
-- **Primitive Shapes**: Circles, triangles, squares, pill shapes, and squiggles used as background elements, masks, or icons.
-- **Hard Shadows**: Elements often have a hard, offset drop shadow (no blur) giving a sticker or cut-out paper feel.
-- **Pattern Fills**: Polka dots, grid lines, and diagonal stripes used to fill shapes or backgrounds.
-- **Varied Radii**: Mixing fully rounded corners with sharp ones to create "leaf" shapes or asymmetric blobs.
+    .highlight-pink {
+      background-color: var(--secondary-pink);
+      color: var(--bg-cream);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      border: var(--border-width) solid var(--border-color);
+      display: inline-block;
+      transform: rotate(-1.5deg);
+    }
 
----
+    .highlight-amber {
+      background-color: var(--tertiary-amber);
+      color: var(--border-color);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      border: var(--border-width) solid var(--border-color);
+      display: inline-block;
+      transform: rotate(2deg);
+    }
 
-## Design Token System
+    .highlight-mint {
+      background-color: var(--quaternary-mint);
+      color: var(--border-color);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      border: var(--border-width) solid var(--border-color);
+      display: inline-block;
+      transform: rotate(-1deg);
+    }
 
-### Colors (Light Mode)
-A punchy, high-saturation palette anchored by strong neutrals.
+    /* --- Layout Elements --- */
+    .container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+    }
 
-```
-background:        #FFFDF5    // Warm Cream/Off-White (Paper feel)
-foreground:        #1E293B    // Slate 800 (Softer than black)
-muted:             #F1F5F9    // Slate 100
-mutedForeground:   #64748B    // Slate 500
-accent:            #8B5CF6    // Vivid Violet (Primary Brand)
-accentForeground:  #FFFFFF    // White
-secondary:         #F472B6    // Hot Pink (Playful pop)
-tertiary:          #FBBF24    // Amber/Yellow (Optimism)
-quaternary:        #34D399    // Emerald/Mint (Freshness)
-border:            #E2E8F0    // Slate 200
-input:             #FFFFFF    // White
-card:              #FFFFFF    // White
-ring:              #8B5CF6    // Violet Focus
-```
+    .section {
+      padding: 80px 0;
+      position: relative;
+      border-bottom: var(--border-width) dashed var(--dot-color);
+    }
 
-**Usage Rule**: Use `accent` for primary actions. Use `secondary`, `tertiary`, and `quaternary` rotationally for decorative shapes, icons, or emphasized words to create a "confetti" effect.
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 24px;
+      z-index: 100;
+      margin-top: 16px;
+      transition: var(--transition-bounce);
+    }
 
-### Typography
+    .nav-container {
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-pop);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 28px;
+      transition: var(--transition-bounce);
+    }
 
-**Headings**: `"Outfit", system-ui, sans-serif`
-- A geometric sans with character. Rounded corners on letters make it friendly.
-- **Weights**: Bold (700) or ExtraBold (800).
+    .navbar.scrolled .nav-container {
+      padding: 8px 24px;
+      transform: scale(0.98);
+    }
 
-**Body**: `"Plus Jakarta Sans", system-ui, sans-serif`
-- Highly legible, modern, geometric but humanist.
-- **Weights**: Regular (400), Medium (500).
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--fg-slate);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-**Scale Ratio**: 1.25 (Major Third) - melodic and harmonious.
+    .logo-dot {
+      width: 14px;
+      height: 14px;
+      background-color: var(--secondary-pink);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      display: inline-block;
+    }
 
-### Radius & Border
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      align-items: center;
+    }
 
-```
-radius-sm:   8px
-radius-md:   16px
-radius-lg:   24px
-radius-full: 9999px
-border-width: 2px     // Chunky borders by default
-```
+    .nav-link {
+      color: var(--fg-slate);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      transition: var(--transition-bounce);
+      border: 2px solid transparent;
+    }
 
-**Special "Blob" Radius**: `rounded-tl-2xl rounded-tr-2xl rounded-br-2xl rounded-bl-none` (Speech bubble style) or `rounded-t-full rounded-b-none` (Arch).
+    .nav-link:hover {
+      background-color: var(--tertiary-amber);
+      border-color: var(--border-color);
+      transform: translate(-2px, -2px);
+      box-shadow: 2px 2px 0px var(--border-color);
+    }
 
-### Shadows & Effects
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-**The "Pop" Shadow (Hard Shadow)**:
-```
-box-shadow: 4px 4px 0px 0px #1E293B;  // Dark hard shadow
-box-shadow-hover: 6px 6px 0px 0px #1E293B; // Lift effect
-box-shadow-active: 2px 2px 0px 0px #1E293B; // Press effect
-```
-No blur. Solid offset colors.
+    /* Theme Toggle Candy Switch */
+    .theme-toggle-btn {
+      background: var(--muted-slate);
+      border: var(--border-width) solid var(--border-color);
+      width: 52px;
+      height: 28px;
+      border-radius: var(--radius-full);
+      position: relative;
+      cursor: pointer;
+      outline: none;
+      display: flex;
+      align-items: center;
+      padding: 0 4px;
+      box-shadow: 2px 2px 0px var(--border-color);
+      transition: var(--transition-bounce);
+    }
 
-### Textures & Patterns
-- **Dot Grid**: A background of small dots (`bg-[url(...)]`) in strict formation.
-- **Squiggles**: SVG paths used as section dividers or underlining for headings.
-- **Confetti**: Small SVG shapes (triangles, circles) absolutely positioned behind main content blocks.
+    .theme-toggle-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--border-color);
+    }
 
----
+    .theme-toggle-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px var(--border-color);
+    }
 
-## Component Stylings
+    .theme-toggle-thumb {
+      width: 18px;
+      height: 18px;
+      background-color: var(--accent-violet);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      position: absolute;
+      left: 4px;
+      transition: var(--transition-bounce);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-### Buttons
+    [data-theme="dark"] .theme-toggle-thumb {
+      left: calc(100% - 22px);
+      background-color: var(--tertiary-amber);
+    }
 
-**Primary Button ("The Candy Button")**:
-```
-- Bg: accent (#8B5CF6)
-- Text: white, font-weight: 700
-- Radius: rounded-full (Pill)
-- Border: 2px solid #1E293B (Dark border around color)
-- Shadow: 4px 4px 0px #1E293B (Hard shadow)
-- Hover: translate-x-[-2px] translate-y-[-2px], shadow extends to 6px 6px
-- Active: translate-x-[2px] translate-y-[2px], shadow shrinks to 2px 2px
-- Icon: ArrowRight, circular background (white) inside button
-```
+    /* --- Buttons --- */
+    .btn {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: var(--transition-bounce);
+      border-radius: var(--radius-full);
+      outline: none;
+      position: relative;
+      font-size: 1.1rem;
+    }
 
-**Secondary Button**:
-```
-- Bg: transparent
-- Text: foreground
-- Border: 2px solid #1E293B
-- Radius: rounded-full
-- Shadow: none
-- Hover: bg-tertiary (#FBBF24) - Fills with yellow on hover
-```
+    .btn-primary {
+      background-color: var(--accent-violet);
+      color: var(--accent-fg);
+      border: var(--border-width) solid var(--border-color);
+      padding: 12px 28px;
+      box-shadow: var(--shadow-pop);
+    }
 
-### Cards
+    .btn-primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-pop-hover);
+    }
 
-**The "Sticker" Card**:
-```
-- Bg: white
-- Border: 2px solid #1E293B
-- Radius: rounded-xl
-- Shadow: 8px 8px 0px #E2E8F0 (Soft hard shadow) or #F472B6 (Pink shadow for featured)
-- Hover: Rotate -1deg, Scale 1.02 (Wiggle effect)
-- Title: Bold Outfit font
-- Icon: Floating circle div with centered icon, sitting half-in/half-out of the top border.
-```
+    .btn-primary:active {
+      transform: translate(2px, 2px);
+      box-shadow: var(--shadow-pop-active);
+    }
 
-### Inputs
+    .btn-icon-wrapper {
+      background-color: var(--accent-fg);
+      color: var(--border-color);
+      border: var(--border-width) solid var(--border-color);
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-bounce);
+    }
 
-```
-- Bg: white
-- Border: 2px solid #CBD5E1
-- Radius: rounded-lg
-- Text: foreground
-- Shadow: 4px 4px 0px transparent (hidden initially)
-- Focus: Border accent, Shadow 4px 4px 0px accent (Hard color shadow on focus)
-- Label: Bold, uppercase, small tracking-wide.
-```
+    .btn-primary:hover .btn-icon-wrapper {
+      transform: rotate(45deg);
+    }
 
----
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--fg-slate);
+      border: var(--border-width) solid var(--border-color);
+      padding: 12px 28px;
+    }
 
-## Layout Strategy
+    .btn-secondary:hover {
+      background-color: var(--tertiary-amber);
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-pop);
+    }
 
-### General
-- **Container**: `max-w-6xl` (Generous width).
-- **Spacing**: `py-24` (96px). Spacious but not empty; filled with patterns.
-- **Grid**: 12-column logic, but grouped into big blocks (6/6 or 4/4/4).
+    .btn-secondary:active {
+      transform: translate(2px, 2px);
+      box-shadow: var(--shadow-pop-active);
+    }
 
-### Unique Section Layouts
-1.  **Hero**:
-    - Text left, Image right.
-    - **Decoration**: A massive yellow circle behind the text. A dotted pattern behind the image. The image itself has a "blob" mask (CSS clip-path or border-radius manipulation).
-2.  **Features**:
-    - Grid of 3.
-    - **Decoration**: Each card is connected by a dashed SVG line drawn in the background.
-    - Alternating colors for card headers (Violet, Pink, Yellow).
-3.  **Pricing**:
-    - The middle card is scaled up (1.1) and has a massive yellow star badge "MOST POPULAR" rotated 15deg.
+    /* --- HERO SECTION --- */
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 48px;
+      min-height: 70vh;
+      padding: 40px 0;
+    }
 
----
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
 
-## Effects & Animation
+    /* Background huge amber circle decorator */
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: -60px;
+      width: 140px;
+      height: 140px;
+      background-color: var(--tertiary-amber);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      z-index: -1;
+      opacity: 0.85;
+    }
 
-**Feel**: Bouncy, Elastic, Fun.
+    .hero-subtitle {
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-violet);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-- **Hover**: `transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]` (Overshoot/Bounciness).
-- **Entrance**: Elements shouldn't just fade in; they should **pop** in (Scale 0->1 with bounce).
-- **Marquee**: Use infinite scrolling text for client logos or keywords.
-- **Wiggle**: Keyframe animation `rotate: 0deg -> 3deg -> -3deg -> 0deg` on hover for icons.
+    .hero-title {
+      margin-bottom: 24px;
+    }
 
----
+    .hero-title span {
+      display: inline-block;
+    }
 
-## Iconography
+    .hero-desc {
+      margin-bottom: 36px;
+      font-size: 1.2rem;
+      color: var(--muted-fg);
+      max-width: 580px;
+    }
 
-**Lucide React** settings:
-- **Stroke Width**: `2.5px` (Bold/Chunky).
-- **Style**: Round line caps, round line joins.
-- **Color**: Often white inside a colored circle, or the dark foreground color.
-- **Usage**: Enclosed in shapes. Never floating alone. A "Check" icon isn't just a check; it's a check inside a green circle.
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
----
+    /* Hero Portrait Frame */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-## Responsive Strategy
+    .portrait-frame {
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-pop-lg);
+      width: 100%;
+      max-width: 380px;
+      height: 420px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: var(--transition-bounce);
+    }
 
-- **Mobile**:
-  - Stack everything.
-  - Reduce "pop" shadows to 2px to save space.
-  - Turn horizontal squiggle lines into vertical dividers.
-  - Keep buttons big and tappable (min 48px height).
-  - Hide complex background floating shapes that might overlap text.
+    .portrait-frame:hover {
+      transform: rotate(-1deg) scale(1.02);
+      box-shadow: var(--shadow-pop-lg-hover);
+    }
 
----
+    .portrait-bg {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(var(--border-color) 2px, transparent 2px);
+      background-size: 16px 16px;
+      opacity: 0.15;
+      z-index: 1;
+    }
 
-## Accessibility & Best Practices
+    .portrait-image {
+      width: 90%;
+      height: 90%;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: var(--border-width) solid var(--border-color);
+      z-index: 2;
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+      background-color: var(--muted-slate);
+    }
 
-- **Contrast**: The text is slate-800 on off-white/white, which is AAA.
-- **Color**: Never rely *only* on color. Use shapes and text labels.
-- **Motion**: Respect `prefers-reduced-motion`. Disable the "bounce" and "wiggle" effects if preferred.
-- **Focus**: The focus state is high-contrast (thick colored border + hard shadow).
-</design-system>
+    /* Floating Confetti Shapes */
+    .floating-shape {
+      position: absolute;
+      z-index: 3;
+      animation: float 6s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    .shape-1 {
+      top: -20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: var(--secondary-pink);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: 50% 50% 50% 0; /* Leaf blob */
+      animation-delay: 0.5s;
+    }
+
+    .shape-2 {
+      bottom: 20px;
+      left: -30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--tertiary-amber);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      animation-delay: 1.5s;
+    }
+
+    .shape-3 {
+      top: 50%;
+      left: -40px;
+      width: 36px;
+      height: 36px;
+      background-color: var(--quaternary-mint);
+      border: var(--border-width) solid var(--border-color);
+      transform: rotate(45deg);
+      animation: float 4s ease-in-out infinite alternate-reverse;
+    }
+
+    /* --- INFINITE TEXT MARQUEE --- */
+    .marquee-container {
+      background-color: var(--fg-slate);
+      color: var(--bg-cream);
+      border-top: var(--border-width) solid var(--border-color);
+      border-bottom: var(--border-width) solid var(--border-color);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 18px 0;
+      display: flex;
+      transform: rotate(-1deg);
+      width: 104vw;
+      margin-left: -2vw;
+      z-index: 5;
+    }
+
+    .marquee-content {
+      display: inline-flex;
+      animation: scrollMarquee 25s linear infinite;
+      gap: 32px;
+    }
+
+    .marquee-item {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .marquee-symbol {
+      width: 18px;
+      height: 18px;
+      background-color: var(--secondary-pink);
+      border: var(--border-width) solid var(--bg-cream);
+      border-radius: var(--radius-full);
+    }
+
+    .marquee-symbol.star {
+      background-color: var(--tertiary-amber);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      border: none;
+    }
+
+    /* --- ABOUT & STAMP BOARD --- */
+    .about-wrapper {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-intro p {
+      margin-bottom: 20px;
+      color: var(--muted-fg);
+    }
+
+    /* Playground Stamp container */
+    .sandbox-card {
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-pop-lg);
+      position: relative;
+      overflow: hidden;
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+      z-index: 5;
+    }
+
+    .sandbox-header {
+      background-color: var(--muted-slate);
+      border-bottom: var(--border-width) solid var(--border-color);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sandbox-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .sandbox-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: var(--radius-full);
+      border: var(--border-width) solid var(--border-color);
+    }
+
+    .sandbox-dot:nth-child(1) { background-color: var(--secondary-pink); }
+    .sandbox-dot:nth-child(2) { background-color: var(--tertiary-amber); }
+    .sandbox-dot:nth-child(3) { background-color: var(--quaternary-mint); }
+
+    .sandbox-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted-fg);
+    }
+
+    .sandbox-board {
+      flex-grow: 1;
+      position: relative;
+      cursor: crosshair;
+      background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+      background-size: 16px 16px;
+      overflow: hidden;
+    }
+
+    .sandbox-instructions {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+      z-index: 10;
+      background: var(--bg-cream);
+      padding: 12px 20px;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: 3px 3px 0 var(--border-color);
+    }
+
+    .sandbox-instructions h4 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .sandbox-instructions p {
+      font-size: 0.85rem;
+      color: var(--muted-fg);
+    }
+
+    /* Stamped items styling */
+    .stamped-shape {
+      position: absolute;
+      transform-origin: center;
+      animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      pointer-events: auto;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    /* Badge list of skills */
+    .skill-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .skill-badge {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      border: var(--border-width) solid var(--border-color);
+      box-shadow: 2px 2px 0px var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: default;
+      transition: var(--transition-bounce);
+    }
+
+    .skill-badge:hover {
+      transform: translate(-2px, -2px) rotate(2deg);
+      box-shadow: 4px 4px 0px var(--border-color);
+    }
+
+    .skill-badge:nth-child(3n+1) { background-color: var(--secondary-pink); color: var(--bg-cream); }
+    .skill-badge:nth-child(3n+2) { background-color: var(--tertiary-amber); color: var(--border-color); }
+    .skill-badge:nth-child(3n+3) { background-color: var(--quaternary-mint); color: var(--border-color); }
+
+    /* --- FEATURED PROJECTS --- */
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px auto;
+      position: relative;
+    }
+
+    .section-tag {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-violet);
+      background-color: var(--muted-slate);
+      border: var(--border-width) solid var(--border-color);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 16px;
+      box-shadow: 2px 2px 0 var(--border-color);
+    }
+
+    .section-title {
+      margin-bottom: 16px;
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+      padding: 10px 0;
+    }
+
+    /* The Sticker Card */
+    .sticker-card {
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-pop-lg);
+      padding: 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: var(--transition-bounce);
+      cursor: pointer;
+    }
+
+    .sticker-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      background-color: transparent;
+      z-index: -1;
+      transition: var(--transition-bounce);
+    }
+
+    .sticker-card:hover {
+      transform: rotate(-1deg) scale(1.02);
+      box-shadow: 10px 10px 0px var(--secondary-pink);
+    }
+
+    /* Alternate shadow colors */
+    .sticker-card:nth-child(2n):hover {
+      box-shadow: 10px 10px 0px var(--accent-violet);
+    }
+
+    .sticker-card:nth-child(3n):hover {
+      box-shadow: 10px 10px 0px var(--tertiary-amber);
+    }
+
+    /* Half-in / Half-out icon floating circle */
+    .card-icon-container {
+      width: 56px;
+      height: 56px;
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -28px;
+      left: 32px;
+      box-shadow: 3px 3px 0 var(--border-color);
+      transition: var(--transition-bounce);
+      z-index: 10;
+    }
+
+    .sticker-card:hover .card-icon-container {
+      transform: rotate(360deg) scale(1.1);
+      background-color: var(--tertiary-amber);
+    }
+
+    .card-icon {
+      color: var(--fg-slate);
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted-fg);
+    }
+
+    .card-category {
+      color: var(--accent-violet);
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      margin-top: 4px;
+    }
+
+    .card-desc {
+      color: var(--muted-fg);
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .card-tag {
+      background-color: var(--muted-slate);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--fg-slate);
+    }
+
+    .card-cta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: var(--fg-slate);
+      transition: var(--transition-bounce);
+    }
+
+    .card-cta i {
+      transition: var(--transition-bounce);
+    }
+
+    .sticker-card:hover .card-cta i {
+      transform: translateX(4px);
+    }
+
+    /* --- SERVICE PACKAGES --- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      align-items: center;
+      padding: 30px 0;
+    }
+
+    .service-card {
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-pop-lg);
+      padding: 40px 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transition: var(--transition-bounce);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 12px 12px 0 var(--border-color);
+    }
+
+    /* Featured scale-up logic */
+    .service-card.featured {
+      border-color: var(--border-color);
+      background-color: var(--bg-cream);
+      z-index: 10;
+      transform: scale(1.05);
+    }
+
+    .service-card.featured:hover {
+      transform: scale(1.07) translateY(-4px);
+    }
+
+    /* Massive rotating yellow star badge */
+    .featured-badge {
+      position: absolute;
+      top: -24px;
+      right: -24px;
+      background-color: var(--tertiary-amber);
+      color: var(--border-color);
+      border: var(--border-width) solid var(--border-color);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(15deg);
+      z-index: 20;
+      box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+    }
+
+    .service-title-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-tier {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+    }
+
+    .service-price {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent-violet);
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .service-price span {
+      font-size: 1rem;
+      color: var(--muted-fg);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 500;
+    }
+
+    .service-desc {
+      color: var(--muted-fg);
+      font-size: 0.95rem;
+      border-bottom: 2px dashed var(--muted-slate);
+      padding-bottom: 20px;
+    }
+
+    .service-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .service-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .service-check {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-full);
+      background-color: var(--quaternary-mint);
+      border: var(--border-width) solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--border-color);
+    }
+
+    /* --- GUESTBOOK BULLETIN BOARD --- */
+    .guestbook-section {
+      background-image: radial-gradient(var(--dot-color) 2px, transparent 2px);
+      background-size: 32px 32px;
+    }
+
+    .guestbook-wrapper {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Guestbook Entry Form */
+    .guestbook-card {
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-pop-lg);
+      padding: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-slate);
+    }
+
+    .form-input, .form-textarea {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--fg-slate);
+      outline: none;
+      box-shadow: 2px 2px 0px transparent;
+      transition: var(--transition-bounce);
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--accent-violet);
+      box-shadow: 4px 4px 0px var(--accent-violet);
+      transform: translate(-2px, -2px);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .sticker-selector {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .sticker-option {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-full);
+      border: var(--border-width) solid var(--border-color);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-bounce);
+      font-size: 1.2rem;
+      background-color: var(--bg-cream);
+    }
+
+    .sticker-option:hover {
+      transform: scale(1.15) rotate(10deg);
+    }
+
+    .sticker-option.selected {
+      background-color: var(--tertiary-amber);
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 2px 2px 0 var(--border-color);
+    }
+
+    /* Sticky notes Board */
+    .bulletin-board {
+      background-color: var(--muted-slate);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: inset 4px 4px 0px rgba(0,0,0,0.05), var(--shadow-pop);
+      min-height: 480px;
+      padding: 32px;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      align-content: start;
+    }
+
+    /* Bulletin Board empty placeholder */
+    .bulletin-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted-fg);
+    }
+
+    .bulletin-empty i {
+      font-size: 2.5rem;
+    }
+
+    /* sticky note sticker */
+    .sticky-note {
+      padding: 20px;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: 4px 4px 0px var(--border-color);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      position: relative;
+      transition: var(--transition-bounce);
+      animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .sticky-note:hover {
+      transform: scale(1.05) rotate(0deg) !important;
+      z-index: 10;
+      box-shadow: 6px 6px 0px var(--border-color);
+    }
+
+    /* Colorful sticky variations */
+    .sticky-note.bg-pink { background-color: #FBCFE8; }
+    .sticky-note.bg-violet { background-color: #DDD6FE; }
+    .sticky-note.bg-amber { background-color: #FDE68A; }
+    .sticky-note.bg-mint { background-color: #A7F3D0; }
+
+    .sticky-emoji {
+      position: absolute;
+      top: -12px;
+      right: -10px;
+      font-size: 1.4rem;
+      background: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotate(-10deg);
+      box-shadow: 2px 2px 0 var(--border-color);
+    }
+
+    .sticky-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1E293B;
+      flex-grow: 1;
+      word-break: break-word;
+    }
+
+    .sticky-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #1E293B;
+      border-top: 1px dashed rgba(30, 41, 59, 0.15);
+      padding-top: 8px;
+    }
+
+    .sticky-author {
+      max-width: 70%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sticky-date {
+      opacity: 0.7;
+    }
+
+    /* --- CONTACT SECTION --- */
+    .contact-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-pop-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .contact-info-panel {
+      background-color: var(--accent-violet);
+      color: var(--accent-fg);
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+      border-right: var(--border-width) solid var(--border-color);
+    }
+
+    .contact-info-panel::before {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      background-color: var(--tertiary-amber);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      z-index: 1;
+    }
+
+    .contact-info-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-info-title {
+      color: var(--accent-fg);
+      margin-bottom: 8px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .contact-icon-circle {
+      width: 44px;
+      height: 44px;
+      background-color: var(--accent-fg);
+      color: var(--border-color);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 0 var(--border-color);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      background-color: var(--tertiary-amber);
+      color: var(--border-color);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-bounce);
+      box-shadow: 3px 3px 0 var(--border-color);
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      transform: translate(-2px, -2px) rotate(8deg);
+      box-shadow: 5px 5px 0 var(--border-color);
+      background-color: var(--secondary-pink);
+      color: var(--accent-fg);
+    }
+
+    .contact-form-panel {
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+      border-top: var(--border-width) solid var(--border-color);
+      background-color: var(--bg-cream);
+      padding: 48px 0;
+      transition: var(--transition-smooth);
+    }
+
+    .footer-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-credits {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .timezone-widget {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      background-color: var(--muted-slate);
+      border: var(--border-width) solid var(--border-color);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      box-shadow: 2px 2px 0 var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timezone-pulse {
+      width: 10px;
+      height: 10px;
+      background-color: var(--quaternary-mint);
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    .scroll-top-btn {
+      width: 44px;
+      height: 44px;
+      background-color: var(--accent-violet);
+      color: var(--accent-fg);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-bounce);
+      box-shadow: 3px 3px 0 var(--border-color);
+      outline: none;
+    }
+
+    .scroll-top-btn:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 var(--border-color);
+      background-color: var(--secondary-pink);
+    }
+
+    /* --- PORTFOLIO DETAIL MODAL --- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-pop-lg);
+      max-width: 700px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.9) rotate(-1deg);
+      transition: var(--transition-bounce);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: scale(1) rotate(0deg);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: var(--secondary-pink);
+      color: var(--accent-fg);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-bounce);
+      box-shadow: 2px 2px 0 var(--border-color);
+      z-index: 100;
+      outline: none;
+    }
+
+    .modal-close-btn:hover {
+      transform: translate(-1px, -1px) rotate(90deg);
+      box-shadow: 3px 3px 0 var(--border-color);
+      background-color: var(--accent-violet);
+    }
+
+    .modal-img-container {
+      width: 100%;
+      height: 280px;
+      background-color: var(--muted-slate);
+      position: relative;
+      overflow: hidden;
+      border-bottom: var(--border-width) solid var(--border-color);
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-body {
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .modal-header-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .modal-title {
+      font-size: 2.25rem;
+    }
+
+    .modal-text {
+      color: var(--muted-fg);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .modal-action-footer {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    /* --- ANIMATIONS & PULSES --- */
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+      100% { transform: translateY(5px) rotate(-1deg); }
+    }
+
+    @keyframes scrollMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+      70% { transform: scale(1.1) rotate(5deg); opacity: 0.9; }
+      100% { transform: scale(1) rotate(var(--rand-rot, 0deg)); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.5; }
+    }
+
+    /* --- RESPONSIVE STRATEGY --- */
+    @media (max-width: 992px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 36px;
+      }
+      
+      .hero-content::before {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -20px;
+      }
+      
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+      }
+      
+      .about-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .guestbook-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info-panel {
+        border-right: none;
+        border-bottom: var(--border-width) solid var(--border-color);
+      }
+      
+      .service-card.featured {
+        transform: none;
+      }
+      
+      .service-card.featured:hover {
+        transform: translateY(-4px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --shadow-pop: 2px 2px 0px 0px var(--border-color);
+        --shadow-pop-hover: 3px 3px 0px 0px var(--border-color);
+        --shadow-pop-active: 1px 1px 0px 0px var(--border-color);
+        --shadow-pop-lg: 4px 4px 0px 0px var(--border-color);
+      }
+      
+      .navbar {
+        top: 12px;
+      }
+      
+      .nav-container {
+        padding: 10px 20px;
+      }
+      
+      .nav-links {
+        display: none; /* Simplified responsive design */
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .floating-shape {
+        display: none; /* Hide background decorative shapes */
+      }
+      
+      .featured-badge {
+        top: -16px;
+        right: -16px;
+        width: 72px;
+        height: 72px;
+        font-size: 0.7rem;
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-dot-grid">
+
+  <!-- ==================== STICKER NAVIGATION ==================== -->
+  <header class="container navbar" id="navbar">
+    <nav class="nav-container">
+      <a href="#hero" class="logo">
+        <span class="logo-dot"></span>
+        ZULAIHA.DEV
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#guestbook" class="nav-link">Guestbook</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <!-- Vibe switch toggle button -->
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme Vibe" title="Switch Theme Vibe">
+          <div class="theme-toggle-thumb" id="theme-thumb">
+            <i data-lucide="sun" style="width: 10px; height: 10px; color: var(--border-color)"></i>
+          </div>
+        </button>
+        <a href="#contact" class="btn btn-secondary" style="padding: 8px 20px; font-size: 0.95rem;">Hire Me</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="container section" id="hero" style="border-bottom: none; padding-top: 40px;">
+    <div class="hero-wrapper">
+      <div class="hero-content">
+        <div class="hero-subtitle">
+          <i data-lucide="sparkles" class="hero-subtitle-icon" style="stroke-width: 3px;"></i>
+          Creative Frontend Engineer
+        </div>
+        <h1 class="hero-title">
+          Stable Grid,<br>
+          <span class="highlight-pink">Wild Decoration.</span>
+        </h1>
+        <p class="hero-desc">
+          Hello! I'm <strong>Zulaiha Shazreena</strong>. I design and build highly tactile digital playgrounds. By mixing robust functional grids with cheerful geometric shapes, I turn interfaces into interactive sticker books.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            Explore Work
+            <div class="btn-icon-wrapper">
+              <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+            </div>
+          </a>
+          <a href="#contact" class="btn btn-secondary">Let's Chat!</a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <!-- Floating Primitive Elements -->
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        
+        <!-- Portrait sticker frame -->
+        <div class="portrait-frame">
+          <div class="portrait-bg"></div>
+          <img src="zulaiha_portrait.png" alt="Zulaiha Shazreena Illustration" class="portrait-image" id="portrait-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INFINITE TEXT MARQUEE ==================== -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <div class="marquee-item"><span class="marquee-symbol"></span>CREATIVE ENGINEER</div>
+      <div class="marquee-item"><span class="marquee-symbol star"></span>MEMPHIS STYLIST</div>
+      <div class="marquee-item"><span class="marquee-symbol"></span>STABLE GRIDS</div>
+      <div class="marquee-item"><span class="marquee-symbol star"></span>BOUNCY INTERACTION</div>
+      <div class="marquee-item"><span class="marquee-symbol"></span>LIGHTHOUSE 100%</div>
+      <div class="marquee-item"><span class="marquee-symbol star"></span>ACCESSIBLE CORE</div>
+      <div class="marquee-item"><span class="marquee-symbol"></span>TACTILE WEB</div>
+      
+      <!-- Duplicate for infinite scrolling -->
+      <div class="marquee-item"><span class="marquee-symbol"></span>CREATIVE ENGINEER</div>
+      <div class="marquee-item"><span class="marquee-symbol star"></span>MEMPHIS STYLIST</div>
+      <div class="marquee-item"><span class="marquee-symbol"></span>STABLE GRIDS</div>
+      <div class="marquee-item"><span class="marquee-symbol star"></span>BOUNCY INTERACTION</div>
+      <div class="marquee-item"><span class="marquee-symbol"></span>LIGHTHOUSE 100%</div>
+      <div class="marquee-item"><span class="marquee-symbol star"></span>ACCESSIBLE CORE</div>
+      <div class="marquee-item"><span class="marquee-symbol"></span>TACTILE WEB</div>
+    </div>
+  </div>
+
+  <!-- ==================== ABOUT & TOY sandbox ==================== -->
+  <section class="container section" id="about">
+    <div class="about-wrapper">
+      <div class="about-intro">
+        <div class="section-tag">About Me</div>
+        <h2 class="section-title" style="margin-bottom: 24px;">Designing with optimism, clarity, & tactile fun.</h2>
+        <p>
+          I am a visual design specialist and modern developer who believes digital interfaces shouldn't be boring, flat sheets. Inspired by the bold energy of the 80s <strong>Memphis Group</strong> and the cleanliness of modern UI engineering, I cultivate interactive workspaces that user clickers love.
+        </p>
+        <p>
+          Beyond writing strict semantic code and high-performance layouts, my core focus is building emotional connections through subtle bounciness, elastic motion, and deep micro-interactivity.
+        </p>
+        
+        <h3 style="margin-top: 36px; margin-bottom: 16px;">My Sticker Badges</h3>
+        <div class="skill-badges">
+          <div class="skill-badge"><i data-lucide="code-2"></i>HTML5 / CSS3</div>
+          <div class="skill-badge"><i data-lucide="cpu"></i>ES6+ Javascript</div>
+          <div class="skill-badge"><i data-lucide="layout"></i>UI/UX Frameworks</div>
+          <div class="skill-badge"><i data-lucide="palette"></i>Color Theory</div>
+          <div class="skill-badge"><i data-lucide="activity"></i>Web Animation</div>
+          <div class="skill-badge"><i data-lucide="accessibility"></i>WCAG Accessibility</div>
+          <div class="skill-badge"><i data-lucide="terminal"></i>System Architecture</div>
+        </div>
+      </div>
+      
+      <!-- The Stamp sandbox board -->
+      <div class="sandbox-card">
+        <div class="sandbox-header">
+          <div class="sandbox-dots">
+            <span class="sandbox-dot"></span>
+            <span class="sandbox-dot"></span>
+            <span class="sandbox-dot"></span>
+          </div>
+          <div class="sandbox-title">Geometric Toybox</div>
+          <i data-lucide="toy-brick" style="width: 16px; height: 16px; color: var(--muted-fg);"></i>
+        </div>
+        <div class="sandbox-board" id="stamp-board">
+          <div class="sandbox-instructions">
+            <h4>Spawn Shapes Playground</h4>
+            <p>Click inside this grid to stamp colorful Memphis geometries!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED PROJECTS ==================== -->
+  <section class="container section" id="projects">
+    <div class="section-header">
+      <div class="section-tag">Portfolio</div>
+      <h2 class="section-title">Visual masterworks & interactive tools</h2>
+      <p style="color: var(--muted-fg)">A handpicked collection of applications built with geometric structural logic and rich motion properties.</p>
+    </div>
+    
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="sticker-card" data-project="memphis-builder">
+        <div class="card-icon-container">
+          <i data-lucide="grid-3x3" class="card-icon" style="width: 24px; height: 24px; stroke-width: 2.5px;"></i>
+        </div>
+        <div class="card-meta">
+          <span class="card-category">Visual Tool</span>
+          <span class="card-year">2026</span>
+        </div>
+        <h3 class="card-title">Neo-Memphis Grid Builder</h3>
+        <p class="card-desc">An interactive visual layout builder powered by HSL-driven coloring, absolute drag-and-drop geometric shapes, and dynamic export capabilities.</p>
+        <div class="card-tags">
+          <span class="card-tag">Vanilla JS</span>
+          <span class="card-tag">CSS Grid</span>
+          <span class="card-tag">SVG Stamp</span>
+        </div>
+        <div class="card-cta">
+          Inspect Case Study
+          <i data-lucide="arrow-up-right" style="width: 18px; height: 18px; stroke-width: 3px;"></i>
+        </div>
+      </div>
+      
+      <!-- Project 2 -->
+      <div class="sticker-card" data-project="supaquest">
+        <div class="card-icon-container" style="background-color: var(--secondary-pink);">
+          <i data-lucide="check-square" class="card-icon" style="width: 24px; height: 24px; stroke-width: 2.5px; color: white;"></i>
+        </div>
+        <div class="card-meta">
+          <span class="card-category">App Design</span>
+          <span class="card-year">2025</span>
+        </div>
+        <h3 class="card-title">SupaQuest Productivity Sandbox</h3>
+        <p class="card-desc">A playful, stickered note-taking canvas and high-tactility tracker that converts dry schedules into interactive sticker book quests.</p>
+        <div class="card-tags">
+          <span class="card-tag">UI Engineering</span>
+          <span class="card-tag">Animation</span>
+          <span class="card-tag">JSON Store</span>
+        </div>
+        <div class="card-cta">
+          Inspect Case Study
+          <i data-lucide="arrow-up-right" style="width: 18px; height: 18px; stroke-width: 3px;"></i>
+        </div>
+      </div>
+      
+      <!-- Project 3 -->
+      <div class="sticker-card" data-project="retrosynth">
+        <div class="card-icon-container" style="background-color: var(--tertiary-amber);">
+          <i data-lucide="music" class="card-icon" style="width: 24px; height: 24px; stroke-width: 2.5px;"></i>
+        </div>
+        <div class="card-meta">
+          <span class="card-category">Audio Widget</span>
+          <span class="card-year">2025</span>
+        </div>
+        <h3 class="card-title">RetroSynth Audio Soundboard</h3>
+        <p class="card-desc">A fully synthesised retro wave audio soundboard designed with elastic keys, responsive canvas wiggles, and interactive custom keyboard maps.</p>
+        <div class="card-tags">
+          <span class="card-tag">Web Audio API</span>
+          <span class="card-tag">HTML Canvas</span>
+          <span class="card-tag">Elastic CSS</span>
+        </div>
+        <div class="card-cta">
+          Inspect Case Study
+          <i data-lucide="arrow-up-right" style="width: 18px; height: 18px; stroke-width: 3px;"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES SECTION ==================== -->
+  <section class="container section" id="services">
+    <div class="section-header">
+      <div class="section-tag">Services</div>
+      <h2 class="section-title">Stable services, wild execution</h2>
+      <p style="color: var(--muted-fg)">Available packages designed to kickstart your creative visual products and upgrade digital interfaces.</p>
+    </div>
+    
+    <div class="services-grid">
+      <!-- Tier 1 -->
+      <div class="service-card">
+        <div class="service-title-container">
+          <span class="service-tier">Visual Blueprint</span>
+          <div class="service-price">$450<span>/ project</span></div>
+        </div>
+        <p class="service-desc">Complete interactive visual audits and customized Memphis system token guidelines for your company.</p>
+        <ul class="service-features">
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Brand Color Auditing</li>
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> 3 Unique Component Assets</li>
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Typography Hierarchy System</li>
+          <li class="service-feature" style="color: var(--muted-fg);"><div class="service-check" style="background-color: var(--muted-slate); opacity: 0.5;"><i data-lucide="minus" style="width: 14px; height: 14px;"></i></div> Custom JavaScript Animation</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary" style="margin-top: 16px;">Acquire Package</a>
+      </div>
+      
+      <!-- Tier 2 - FEATURED (MOST POPULAR) -->
+      <div class="service-card featured">
+        <div class="featured-badge">Pop! Popular</div>
+        <div class="service-title-container">
+          <span class="service-tier">Interactive Dev</span>
+          <div class="service-price" style="color: var(--secondary-pink);">$950<span>/ project</span></div>
+        </div>
+        <p class="service-desc">Full-scale frontend design and deployment utilizing high-fidelity stamp sandboxes, micro-animations, and complete responsiveness.</p>
+        <ul class="service-features">
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> 5 Custom Designed Sections</li>
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> High-Contrast Theme System</li>
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Custom Bouncy Interactivity</li>
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Complete WCAG Accessibility</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 16px; background-color: var(--secondary-pink);">Acquire Package</a>
+      </div>
+      
+      <!-- Tier 3 -->
+      <div class="service-card">
+        <div class="service-title-container">
+          <span class="service-tier">Full Web Identity</span>
+          <div class="service-price">$1,800<span>/ project</span></div>
+        </div>
+        <p class="service-desc">Complete corporate rebrand strategy combined with beautiful interactive frontend products built from ground zero.</p>
+        <ul class="service-features">
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Unlimited Component Styles</li>
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> Interactive Toybox Sandbox</li>
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> LocalStorage DB integrations</li>
+          <li class="service-feature"><div class="service-check"><i data-lucide="check" style="width: 14px; height: 14px; stroke-width: 3px;"></i></div> 1-Month Engineering Support</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary" style="margin-top: 16px;">Acquire Package</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GUESTBOOK BULLETIN BOARD ==================== -->
+  <section class="container section guestbook-section" id="guestbook">
+    <div class="section-header">
+      <div class="section-tag" style="background-color: var(--secondary-pink); color: white;">Bulletin</div>
+      <h2 class="section-title">Sign the Guestbook Board</h2>
+      <p style="color: var(--muted-fg)">Leave your sticker message on my visual bulletin board! Your details are stored in your active browser context.</p>
+    </div>
+    
+    <div class="guestbook-wrapper">
+      <!-- Guestbook Form -->
+      <div class="guestbook-card">
+        <form id="guestbook-form" autocomplete="off">
+          <div class="form-group">
+            <label for="guest-name" class="form-label">Your Moniker</label>
+            <input type="text" id="guest-name" class="form-input" placeholder="e.g. Captain Spark" required maxlength="25">
+          </div>
+          
+          <div class="form-group">
+            <label for="guest-msg" class="form-label">Sticker Message</label>
+            <textarea id="guest-msg" class="form-textarea" placeholder="Write a nice greeting..." required maxlength="120"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Choose Sticker Avatar</label>
+            <div class="sticker-selector">
+              <span class="sticker-option selected" data-emoji="⚡">⚡</span>
+              <span class="sticker-option" data-emoji="🎨">🎨</span>
+              <span class="sticker-option" data-emoji="🚀">🚀</span>
+              <span class="sticker-option" data-emoji="🍡">🍡</span>
+              <span class="sticker-option" data-emoji="🍕">🍕</span>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
+            Stamp Bulletin
+            <div class="btn-icon-wrapper">
+              <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+            </div>
+          </button>
+        </form>
+      </div>
+      
+      <!-- Bulletin Board display area -->
+      <div class="bulletin-board" id="bulletin-board">
+        <!-- Sticky notes will load here dynamically via Javascript -->
+        <div class="bulletin-empty" id="bulletin-empty">
+          <i data-lucide="sticky-note" style="stroke-width: 1.5px;"></i>
+          <h4>Board is blank!</h4>
+          <p>Be the absolute first one to leave a sticker message above!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT PANEL ==================== -->
+  <section class="container section" id="contact" style="border-bottom: none;">
+    <div class="section-header">
+      <div class="section-tag" style="background-color: var(--tertiary-amber); color: var(--border-color);">Connection</div>
+      <h2 class="section-title">Let's craft visual masterworks</h2>
+      <p style="color: var(--muted-fg)">Have a fascinating project or a design system challenge? Get in touch and let's construct together.</p>
+    </div>
+    
+    <div class="contact-wrapper">
+      <!-- Details Panel -->
+      <div class="contact-info-panel">
+        <div class="contact-info-content">
+          <h3 class="contact-info-title">Zulaiha Shazreena</h3>
+          <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem;">
+            Always excited to partner with clients who love bright typography, bold geometry, and tactile interfaces. Let's make the internet fun again!
+          </p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon-circle">
+                <i data-lucide="mail" style="width: 20px; height: 20px;"></i>
+              </div>
+              <span>shazreena.zulaiha@gmail.com</span>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon-circle">
+                <i data-lucide="map-pin" style="width: 20px; height: 20px;"></i>
+              </div>
+              <span>Kuala Lumpur, Malaysia</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="social-links" style="margin-top: auto; position: relative; z-index: 2;">
+          <a href="#" class="social-link" aria-label="GitHub"><i data-lucide="github"></i></a>
+          <a href="#" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+          <a href="#" class="social-link" aria-label="Dribbble"><i data-lucide="dribbble"></i></a>
+        </div>
+      </div>
+      
+      <!-- Form Panel -->
+      <div class="contact-form-panel">
+        <form id="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();" autocomplete="off">
+          <div class="form-group">
+            <label for="contact-name" class="form-label">Full Name</label>
+            <input type="text" id="contact-name" class="form-input" placeholder="Zulaiha Shazreena" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="contact-email" class="form-label">Email Address</label>
+            <input type="email" id="contact-email" class="form-input" placeholder="you@company.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="contact-message" class="form-label">Project Brief</label>
+            <textarea id="contact-message" class="form-textarea" placeholder="Tell me a bit about your visual ambitions..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
+            Transmit Message
+            <div class="btn-icon-wrapper">
+              <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+            </div>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-wrapper">
+      <div class="footer-left">
+        <p class="footer-credits">
+          &copy; <span id="year-container">2026</span> ZULAIHA.DEV • Made with ⚡ and geometric grids.
+        </p>
+      </div>
+      
+      <div class="footer-right">
+        <!-- Live Kuala Lumpur local clock -->
+        <div class="timezone-widget">
+          <span class="timezone-pulse"></span>
+          <span>KL, MY: </span>
+          <span id="live-time">12:00:00 PM</span>
+        </div>
+        
+        <button class="scroll-top-btn" id="scroll-top" aria-label="Scroll back to top">
+          <i data-lucide="arrow-up" style="width: 20px; height: 20px; stroke-width: 3px;"></i>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== DETAIL MODALS ==================== -->
+  <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modal-close" aria-label="Close Case Study" title="Close Overlay">
+        <i data-lucide="x" style="width: 20px; height: 20px; stroke-width: 3px;"></i>
+      </button>
+      
+      <div class="modal-img-container">
+        <div class="portrait-bg"></div>
+        <img src="" alt="Project Preview Image" class="modal-img" id="modal-img">
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-header-meta">
+          <span class="card-category" id="modal-category" style="color: var(--accent-violet);"></span>
+          <span id="modal-year" style="font-weight: 800; color: var(--muted-fg);"></span>
+        </div>
+        <h2 class="modal-title" id="modal-title"></h2>
+        <div class="modal-tags" id="modal-tags"></div>
+        <p class="modal-text" id="modal-desc"></p>
+        
+        <div class="modal-action-footer">
+          <a href="#" class="btn btn-primary" id="modal-live-btn" target="_blank">
+            Access Application
+            <div class="btn-icon-wrapper">
+              <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+            </div>
+          </a>
+          <button class="btn btn-secondary" id="modal-close-secondary">Close Case Study</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Integrated JavaScript Interactivity & Dynamic Engines (from script.js) -->
+  <script>
+    /* ==========================================================================
+       INTERACTIVE LOGIC & CORE BEHAVIbehaviors
+       Portfolio for Zulaiha Shazreena
+       ========================================================================== */
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // --- 1. LIGHT / DARK VIBE TOGGLE SYSTEM ---
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const themeThumb = document.getElementById('theme-thumb');
+      
+      // Load saved theme or check preferences
+      const savedTheme = localStorage.getItem('vibe-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('vibe-theme', newTheme);
+        updateThemeIcon(newTheme);
+      });
+
+      function updateThemeIcon(theme) {
+        if (theme === 'dark') {
+          themeThumb.innerHTML = `<i data-lucide="moon" style="width: 10px; height: 10px; color: #1E293B"></i>`;
+        } else {
+          themeThumb.innerHTML = `<i data-lucide="sun" style="width: 10px; height: 10px; color: #1E293B"></i>`;
+        }
+        lucide.createIcons({
+          attrs: {
+            style: 'width: 10px; height: 10px; color: #1E293B;'
+          },
+          nameAttr: 'data-lucide'
+        });
+      }
+
+      // --- 2. NAVBAR SCROLL EFFECT ---
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // --- 3. LIVE KUALA LUMPUR TIMEZONE CLOCK ---
+      const liveTimeEl = document.getElementById('live-time');
+      const yearContainer = document.getElementById('year-container');
+      
+      if (yearContainer) {
+        yearContainer.textContent = new Date().getFullYear();
+      }
+
+      function updateMalaysiaTime() {
+        const options = {
+          timeZone: 'Asia/Kuala_Lumpur',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true
+        };
+        const klTimeStr = new Intl.DateTimeFormat('en-US', options).format(new Date());
+        if (liveTimeEl) {
+          liveTimeEl.textContent = klTimeStr;
+        }
+      }
+      
+      updateMalaysiaTime();
+      setInterval(updateMalaysiaTime, 1000);
+
+      // --- 4. GEOMETRIC TOYBOX STAMP PLAYGROUND ---
+      const stampBoard = document.getElementById('stamp-board');
+      const instructionManual = stampBoard.querySelector('.sandbox-instructions');
+      let stampedCount = 0;
+
+      const shapeTemplates = [
+        // Circle
+        (color, size) => `<svg width="${size}" height="${size}" viewBox="0 0 100 100" style="fill: ${color}; stroke: var(--border-color); stroke-width: 5px;">
+          <circle cx="50" cy="50" r="44"/>
+        </svg>`,
+        // Square
+        (color, size) => `<svg width="${size}" height="${size}" viewBox="0 0 100 100" style="fill: ${color}; stroke: var(--border-color); stroke-width: 5px;">
+          <rect x="8" y="8" width="84" height="84" rx="8"/>
+        </svg>`,
+        // Triangle
+        (color, size) => `<svg width="${size}" height="${size}" viewBox="0 0 100 100" style="fill: ${color}; stroke: var(--border-color); stroke-width: 5px;">
+          <polygon points="50,6 94,90 6,90" style="stroke-linejoin: round;"/>
+        </svg>`,
+        // Pill / Capsule
+        (color, size) => `<svg width="${size}" height="${size}" viewBox="0 0 120 60" style="fill: ${color}; stroke: var(--border-color); stroke-width: 5px;">
+          <rect x="5" y="5" width="110" height="50" rx="25"/>
+        </svg>`,
+        // Star shape
+        (color, size) => `<svg width="${size}" height="${size}" viewBox="0 0 100 100" style="fill: ${color}; stroke: var(--border-color); stroke-width: 5px;">
+          <polygon points="50,5 64,36 98,36 70,57 81,91 50,70 19,91 30,57 2,36 36,36" style="stroke-linejoin: round;"/>
+        </svg>`,
+        // Squiggle
+        (color, size) => `<svg width="${size}" height="${size}" viewBox="0 0 100 60" style="fill: none; stroke: ${color}; stroke-width: 12px; stroke-linecap: round;">
+          <path d="M10,30 Q30,10 50,30 T90,30" />
+        </svg>`
+      ];
+
+      const colors = [
+        'var(--accent-violet)',
+        'var(--secondary-pink)',
+        'var(--tertiary-amber)',
+        'var(--quaternary-mint)'
+      ];
+
+      stampBoard.addEventListener('click', (e) => {
+        // Prevent trigger if clicking on already stamped items
+        if (e.target.closest('.stamped-shape')) return;
+
+        if (instructionManual && instructionManual.style.display !== 'none') {
+          instructionManual.style.display = 'none';
+        }
+
+        const rect = stampBoard.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Pick random parameters
+        const size = Math.floor(Math.random() * 35) + 35; // 35px to 70px
+        const randShapeIdx = Math.floor(Math.random() * shapeTemplates.length);
+        const randColor = colors[Math.floor(Math.random() * colors.length)];
+        const rotation = Math.floor(Math.random() * 90) - 45; // -45deg to 45deg
+        const popShadow = 4;
+
+        // Create wrapper div
+        const shapeEl = document.createElement('div');
+        shapeEl.className = 'stamped-shape';
+        shapeEl.style.left = `${x - size/2}px`;
+        shapeEl.style.top = `${y - size/2}px`;
+        shapeEl.style.setProperty('--rand-rot', `${rotation}deg`);
+        shapeEl.style.filter = `drop-shadow(${popShadow}px ${popShadow}px 0px var(--border-color))`;
+        shapeEl.style.cursor = 'pointer';
+
+        shapeEl.innerHTML = shapeTemplates[randShapeIdx](randColor, size);
+        stampBoard.appendChild(shapeEl);
+        stampedCount++;
+
+        // Add visual click-removal pop interaction
+        shapeEl.addEventListener('click', (event) => {
+          event.stopPropagation();
+          shapeEl.style.transition = 'all 0.2s cubic-bezier(0.36, -0.6, 0.48, 1.6)';
+          shapeEl.style.transform = 'scale(0) rotate(45deg)';
+          shapeEl.style.opacity = '0';
+          setTimeout(() => {
+            shapeEl.remove();
+            stampedCount--;
+            if (stampedCount === 0 && instructionManual) {
+              instructionManual.style.display = 'block';
+            }
+          }, 200);
+        });
+      });
+
+      // --- 5. PERSISTENT LOCALSTORAGE GUESTBOOK ---
+      const guestbookForm = document.getElementById('guestbook-form');
+      const bulletinBoard = document.getElementById('bulletin-board');
+      const bulletinEmpty = document.getElementById('bulletin-empty');
+      const stickerOptions = document.querySelectorAll('.sticker-option');
+      
+      let selectedEmoji = '⚡';
+      let guestbookEntries = JSON.parse(localStorage.getItem('guestbook-stickies')) || [];
+
+      // Handle emoji selection inside the guestbook form
+      stickerOptions.forEach(opt => {
+        opt.addEventListener('click', () => {
+          stickerOptions.forEach(o => o.classList.remove('selected'));
+          opt.classList.add('selected');
+          selectedEmoji = opt.getAttribute('data-emoji');
+        });
+      });
+
+      // Color options for sticky notes
+      const stickyColors = ['bg-pink', 'bg-violet', 'bg-amber', 'bg-mint'];
+
+      // Load existing guestbook notes
+      renderGuestbook();
+
+      guestbookForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameVal = document.getElementById('guest-name').value.trim();
+        const msgVal = document.getElementById('guest-msg').value.trim();
+        
+        if (!nameVal || !msgVal) return;
+
+        // Create entry model
+        const newEntry = {
+          id: Date.now(),
+          name: nameVal,
+          message: msgVal,
+          emoji: selectedEmoji,
+          colorClass: stickyColors[Math.floor(Math.random() * stickyColors.length)],
+          rotation: Math.floor(Math.random() * 10) - 5, // -5deg to 5deg
+          dateStr: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        };
+
+        guestbookEntries.unshift(newEntry); // Place newest first
+        localStorage.setItem('guestbook-stickies', JSON.stringify(guestbookEntries));
+
+        // Reset Form
+        guestbookForm.reset();
+        selectedEmoji = '⚡';
+        stickerOptions.forEach(o => o.classList.remove('selected'));
+        stickerOptions[0].classList.add('selected');
+
+        renderGuestbook();
+      });
+
+      function renderGuestbook() {
+        // Clear old elements
+        const existingNotes = bulletinBoard.querySelectorAll('.sticky-note');
+        existingNotes.forEach(n => n.remove());
+
+        if (guestbookEntries.length === 0) {
+          bulletinEmpty.style.display = 'flex';
+          return;
+        }
+
+        bulletinEmpty.style.display = 'none';
+
+        guestbookEntries.forEach(entry => {
+          const note = document.createElement('div');
+          note.className = `sticky-note ${entry.colorClass}`;
+          note.style.setProperty('--rand-rot', `${entry.rotation}deg`);
+          note.style.transform = `rotate(${entry.rotation}deg)`;
+          
+          note.innerHTML = `
+            <div class="sticky-emoji">${entry.emoji}</div>
+            <div class="sticky-text">"${escapeHTML(entry.message)}"</div>
+            <div class="sticky-footer">
+              <span class="sticky-author" title="${escapeHTML(entry.name)}">~ ${escapeHTML(entry.name)}</span>
+              <span class="sticky-date">${entry.dateStr}</span>
+            </div>
+          `;
+
+          // Double-click to remove sticky note (easter egg!)
+          note.addEventListener('dblclick', () => {
+            note.style.transform = 'scale(0.8) translateY(20px)';
+            note.style.opacity = '0';
+            setTimeout(() => {
+              guestbookEntries = guestbookEntries.filter(item => item.id !== entry.id);
+              localStorage.setItem('guestbook-stickies', JSON.stringify(guestbookEntries));
+              renderGuestbook();
+            }, 300);
+          });
+
+          bulletinBoard.appendChild(note);
+        });
+      }
+
+      function escapeHTML(str) {
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      // --- 6. CASE STUDY MODAL OVERLAYS ---
+      const projectCards = document.querySelectorAll('.sticker-card');
+      const projectModal = document.getElementById('project-modal');
+      const modalClose = document.getElementById('modal-close');
+      const modalCloseSecondary = document.getElementById('modal-close-secondary');
+      
+      const modalImg = document.getElementById('modal-img');
+      const modalCategory = document.getElementById('modal-category');
+      const modalYear = document.getElementById('modal-year');
+      const modalTitle = document.getElementById('modal-title');
+      const modalTags = document.getElementById('modal-tags');
+      const modalDesc = document.getElementById('modal-desc');
+      const modalLiveBtn = document.getElementById('modal-live-btn');
+
+      // Case studies database
+      const projectDb = {
+        'memphis-builder': {
+          title: 'Neo-Memphis Grid Builder',
+          category: 'Visual Tool',
+          year: '2026',
+          desc: 'The Neo-Memphis Grid Builder arose from a desire to break away from clinical, gray system configurations and give developers a playground for structure. Users can spin up standard CSS grids, style components dynamically using HSL color dials, and stamps overlay decorations directly on their workspace.<br><br>Equipped with an automatic visual-to-CSS engine, this tool outputs complete responsive styling matrices, custom variables, and HTML structural blocks, making the transition from layout toy to live product incredibly fast.',
+          tags: ['Vanilla JS', 'CSS Grid', 'SVG Stamp', 'HSL Math'],
+          image: 'project_builder.png',
+          liveUrl: '#'
+        },
+        'supaquest': {
+          title: 'SupaQuest Productivity Sandbox',
+          category: 'App Design',
+          year: '2025',
+          desc: 'SupaQuest is the ultimate antidote to corporate schedule anxiety. Developed with bouncy micro-motion frameworks and visual sticker rewards, this application transforms tedious daily checklists into a tactile sticker playground.<br><br>Features include drag-and-drop geometric sticker badges for completed work, elastic task cards, and dynamic JSON schema exports. The app localizes all active datasets directly inside the browser context, securing extreme speed and data confidentiality.',
+          tags: ['UI Engineering', 'Animation', 'JSON Store', 'Local Persist'],
+          image: 'project_quest.png',
+          liveUrl: '#'
+        },
+        'retrosynth': {
+          title: 'RetroSynth Audio Soundboard',
+          category: 'Audio Widget',
+          year: '2025',
+          desc: 'RetroSynth fuses the nostalgic sonic texture of 80s hardware synthesizers with the elastic precision of standard web styling. Users are treated to a tactile, wiggling sound keyboard that responds dynamically to keyboard key triggers and mouse clicks.<br><br>Using the advanced Web Audio API to synthesis polyphonic audio nodes on the fly, RetroSynth renders an interactive HTML5 visualizer canvas, providing a full multi-sensory geometric playground that looks as punchy as it sounds.',
+          tags: ['Web Audio API', 'HTML Canvas', 'Elastic CSS', 'Key Listeners'],
+          image: 'project_synth.png',
+          liveUrl: '#'
+        }
+      };
+
+      projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const projKey = card.getAttribute('data-project');
+          const data = projectDb[projKey];
+          
+          if (!data) return;
+
+          // Populate Modal details
+          modalTitle.textContent = data.title;
+          modalCategory.textContent = data.category;
+          modalYear.textContent = data.year;
+          modalDesc.innerHTML = data.desc;
+          modalLiveBtn.href = data.liveUrl;
+          modalImg.src = data.image;
+          modalImg.alt = `${data.title} Mockup`;
+
+          // Set tags
+          modalTags.innerHTML = '';
+          data.tags.forEach(t => {
+            const span = document.createElement('span');
+            span.className = 'card-tag';
+            span.textContent = t;
+            modalTags.appendChild(span);
+          });
+
+          // Open Modal
+          projectModal.classList.add('active');
+          projectModal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden'; // Lock scrolling
+        });
+      });
+
+      // Close triggers
+      function closeModal() {
+        projectModal.classList.remove('active');
+        projectModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = ''; // Unlock scrolling
+      }
+
+      modalClose.addEventListener('click', closeModal);
+      modalCloseSecondary.addEventListener('click', closeModal);
+      projectModal.addEventListener('click', (e) => {
+        if (e.target === projectModal) {
+          closeModal();
+        }
+      });
+      
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // --- 7. SCROLL BACK TO TOP ---
+      const scrollTopBtn = document.getElementById('scroll-top');
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
