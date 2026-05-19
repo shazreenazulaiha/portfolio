@@ -924,6 +924,70 @@
       transform: translateX(4px);
     }
 
+    .card-img-container {
+      width: 100%;
+      height: 200px;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      background-color: var(--muted-slate);
+      box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background-color: var(--muted-slate);
+      padding: 6px;
+      transition: var(--transition-bounce);
+    }
+
+    .sticker-card:hover .card-img {
+      transform: scale(1.05);
+    }
+
+    .card-actions-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 10px;
+      gap: 12px;
+    }
+
+    .card-external-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--accent-violet);
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      box-shadow: 2px 2px 0 var(--border-color);
+      text-decoration: none;
+      transition: var(--transition-bounce);
+      z-index: 15;
+    }
+
+    .card-external-link:hover {
+      background-color: var(--tertiary-amber);
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 var(--border-color);
+      color: var(--border-color);
+    }
+
+    .card-external-link:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--border-color);
+    }
+
     /* --- SERVICE PACKAGES --- */
     .services-grid {
       display: grid;
@@ -1872,28 +1936,44 @@
     </div>
 
     <div class="projects-grid">
-      <!-- Project 1 -->
-      <div class="project-card">
-
-        <img src="sistem1.png" alt="E-AlatSukan">
-
-        <div class="project-info">
-
-          <h3>E-AlatSukan</h3>
-
-          <p>
-            Sports equipment booking and inventory management system
-            developed using HTML, CSS, JavaScript, PHP and MySQL.
-          </p>
-
-          <a href="https://shazreenazulaiha.github.io/e_alatsukan/login.html" target="_blank">
-            View Project
-          </a>
-
+      <!-- Project 1: E-AlatSukan -->
+      <div class="sticker-card" data-project="e-alatsukan" style="max-width: 550px; margin: 0 auto;">
+        <div class="card-icon-container">
+          <i data-lucide="activity" class="card-icon"></i>
         </div>
 
-      </div>
+        <div class="card-img-container">
+          <img src="sistem1.png" alt="E-AlatSukan System Screen" class="card-img">
+        </div>
 
+        <div class="card-meta">
+          <span class="card-category" style="color: var(--accent-violet);">Web Application</span>
+          <span style="font-weight: 800; color: var(--muted-fg);">2026</span>
+        </div>
+
+        <h3 class="card-title">E-AlatSukan</h3>
+        <p class="card-desc">
+          A comprehensive web-based sports equipment booking and inventory management system designed using HTML5, CSS3,
+          JavaScript, PHP, and MySQL.
+        </p>
+
+        <div class="card-tags">
+          <span class="card-tag">HTML5 / CSS3</span>
+          <span class="card-tag">JavaScript</span>
+          <span class="card-tag">PHP / MySQL</span>
+        </div>
+
+        <div class="card-actions-wrapper">
+          <div class="card-cta">
+            Case Study
+            <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+          </div>
+          <a href="https://shazreenazulaiha.github.io/e_alatsukan/login.html" target="_blank" class="card-external-link"
+            onclick="event.stopPropagation();">
+            View Live <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2091,7 +2171,7 @@
   <!-- Integrated JavaScript Interactivity & Dynamic Engines (from script.js) -->
   <script>
     /* ==========================================================================
-       INTERACTIVE LOGIC & CORE BEHAVIbehaviors
+       INTERACTIVE LOGIC & CORE BEHAVIORS
        Portfolio for Zulaiha Shazreena
        ========================================================================== */
 
@@ -2374,6 +2454,15 @@
 
       // Case studies database
       const projectDb = {
+        'e-alatsukan': {
+          title: 'E-AlatSukan Sports System',
+          category: 'Web Application',
+          year: '2026',
+          desc: 'E-AlatSukan is a comprehensive web-based sports equipment booking and inventory management system designed for school or university sports facilities. It manages equipment inventory, handles active user reservations, and supports an administrative approval flow.<br><br>Built with semantic HTML5 structural layout, tactile vanilla CSS, interactive JavaScript frontend modules, and integrated with a standard PHP server and MySQL backend database to ensure rapid CRUD operations and robust data persistence.',
+          tags: ['HTML5 / CSS3', 'JavaScript', 'PHP & MySQL', 'Database CRUD'],
+          image: 'sistem1.png',
+          liveUrl: 'https://shazreenazulaiha.github.io/e_alatsukan/login.html'
+        },
         'memphis-builder': {
           title: 'Neo-Memphis Grid Builder',
           category: 'Visual Tool',
