@@ -1911,8 +1911,10 @@
        PRINT STYLESHEET (PROFESSIONAL COMPACT PDF CV LAYOUT)
        ========================================================================== */
     @media print {
+
       /* Keep neobrutalism design backgrounds and colors intact */
-      html, body {
+      html,
+      body {
         background-color: var(--bg-cream) !important;
         color: var(--fg-slate) !important;
         -webkit-print-color-adjust: exact !important;
@@ -1975,7 +1977,8 @@
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#guestbook" class="nav-link">Guestbook</a></li>
         <li class="mobile-only-actions" style="margin-top: 4px;">
-          <a href="#contact" class="btn btn-secondary" style="width: 100%; padding: 10px 16px; font-size: 0.95rem; display: block; text-align: center;">Hire Me</a>
+          <a href="#contact" class="btn btn-secondary"
+            style="width: 100%; padding: 10px 16px; font-size: 0.95rem; display: block; text-align: center;">Hire Me</a>
         </li>
       </ul>
 
@@ -1986,7 +1989,7 @@
             <i data-lucide="sun" style="width: 10px; height: 10px; color: var(--border-color)"></i>
           </div>
         </button>
-        
+
         <a href="#contact" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.95rem;">Hire Me</a>
       </div>
 
@@ -2156,6 +2159,46 @@
           <a href="https://shazreenazulaiha.github.io/e_alatsukan/login.html" target="_blank" class="card-external-link"
             onclick="event.stopPropagation();">
             View Live <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2: Microsoft PowerBI -->
+      <div class="sticker-card" data-project="powerbi" style="max-width: 550px; margin: 0 auto;">
+        <div class="card-icon-container">
+          <i data-lucide="bar-chart-2" class="card-icon"></i>
+        </div>
+
+        <div class="card-img-container">
+          <img src="powerbi.jpg" alt="Microsoft PowerBI Dashboard" class="card-img"
+            onerror="this.src='https://placehold.co/600x400/F5F3EB/1E293B?text=PowerBI+Dashboard';">
+        </div>
+
+        <div class="card-meta">
+          <span class="card-category" style="color: var(--accent-violet);">Data Analytics</span>
+          <span style="font-weight: 800; color: var(--muted-fg);">2024</span>
+        </div>
+
+        <h3 class="card-title">Microsoft PowerBI Dashboard</h3>
+        <p class="card-desc">
+          An interactive data visualization and business intelligence dashboard designed to deliver actionable insights
+          and comprehensive analytics.
+        </p>
+
+        <div class="card-tags">
+          <span class="card-tag">PowerBI</span>
+          <span class="card-tag">Data Analysis</span>
+          <span class="card-tag">Dashboard</span>
+        </div>
+
+        <div class="card-actions-wrapper">
+          <div class="card-cta">
+            Case Study
+            <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+          </div>
+          <a href="https://shazreenazulaiha.github.io/portfolio/assets/powerbi.pdf" target="_blank"
+            class="card-external-link" onclick="event.stopPropagation();">
+            View Power BI Project PDF <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
           </a>
         </div>
       </div>
