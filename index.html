@@ -205,7 +205,7 @@
     }
 
     .section {
-      padding: 80px 0;
+      padding: 48px 0;
       position: relative;
       border-bottom: var(--border-width) dashed var(--dot-color);
     }
@@ -408,9 +408,9 @@
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       align-items: center;
-      gap: 48px;
-      min-height: 70vh;
-      padding: 40px 0;
+      gap: 32px;
+      min-height: auto;
+      padding: 24px 0;
     }
 
     .hero-content {
@@ -454,7 +454,7 @@
     }
 
     .hero-desc {
-      margin-bottom: 36px;
+      margin-bottom: 24px;
       font-size: 1.2rem;
       color: var(--muted-fg);
       max-width: 580px;
@@ -462,7 +462,7 @@
 
     .hero-buttons {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
@@ -609,12 +609,12 @@
     .about-wrapper {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
-      gap: 60px;
+      gap: 32px;
       align-items: start;
     }
 
     .about-intro p {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       color: var(--muted-fg);
     }
 
@@ -764,7 +764,7 @@
     .section-header {
       text-align: center;
       max-width: 600px;
-      margin: 0 auto 60px auto;
+      margin: 0 auto 32px auto;
       position: relative;
     }
 
@@ -792,7 +792,7 @@
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 36px;
+      gap: 24px;
       padding: 10px 0;
     }
 
@@ -802,11 +802,11 @@
       border: var(--border-width) solid var(--border-color);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-pop-lg);
-      padding: 32px;
+      padding: 24px;
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
       transition: var(--transition-bounce);
       cursor: pointer;
     }
@@ -992,7 +992,7 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
+      gap: 24px;
       align-items: center;
       padding: 30px 0;
     }
@@ -1002,11 +1002,11 @@
       border: var(--border-width) solid var(--border-color);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-pop-lg);
-      padding: 40px 32px;
+      padding: 28px 24px;
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 16px;
       transition: var(--transition-bounce);
     }
 
@@ -1125,7 +1125,7 @@
     .guestbook-wrapper {
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
-      gap: 48px;
+      gap: 24px;
       align-items: start;
     }
 
@@ -1345,10 +1345,10 @@
     .contact-info-panel {
       background-color: var(--accent-violet);
       color: var(--accent-fg);
-      padding: 48px 36px;
+      padding: 32px 24px;
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 24px;
       position: relative;
       overflow: hidden;
       border-right: var(--border-width) solid var(--border-color);
@@ -1435,7 +1435,7 @@
     }
 
     .contact-form-panel {
-      padding: 48px 36px;
+      padding: 32px 24px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1691,6 +1691,35 @@
       }
     }
 
+    .menu-toggle-btn {
+      display: none;
+      background-color: var(--bg-cream);
+      border: var(--border-width) solid var(--border-color);
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 0 var(--border-color);
+      transition: var(--transition-bounce);
+      outline: none;
+    }
+
+    .menu-toggle-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 var(--border-color);
+    }
+
+    .menu-toggle-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--border-color);
+    }
+
+    .mobile-only-actions {
+      display: none;
+    }
+
     /* --- RESPONSIVE STRATEGY --- */
     @media (max-width: 992px) {
       .hero-wrapper {
@@ -1756,20 +1785,71 @@
 
       .nav-container {
         padding: 10px 20px;
+        position: relative;
+      }
+
+      .menu-toggle-btn {
+        display: flex;
+        z-index: 110;
       }
 
       .nav-links {
-        display: none;
-        /* Simplified responsive design */
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 16px;
+        right: 16px;
+        background-color: var(--bg-cream);
+        border: var(--border-width) solid var(--border-color);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-pop-lg);
+        padding: 24px;
+        gap: 16px;
+        align-items: stretch;
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: var(--transition-bounce);
+        z-index: 99;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-link {
+        display: block;
+        text-align: center;
+        width: 100%;
+        border-radius: var(--radius-md);
+        padding: 10px;
+        border: var(--border-width) solid transparent;
+      }
+
+      .nav-link:hover {
+        background-color: var(--tertiary-amber);
+        border-color: var(--border-color);
+        box-shadow: 2px 2px 0 var(--border-color);
+        transform: translate(-2px, -2px);
+      }
+
+      .nav-actions .btn {
+        display: none !important;
+      }
+
+      .mobile-only-actions {
+        display: block;
       }
 
       .section {
-        padding: 60px 0;
+        padding: 36px 0;
       }
 
       .floating-shape {
         display: none;
-        /* Hide background decorative shapes */
       }
 
       .featured-badge {
@@ -1780,11 +1860,332 @@
         font-size: 0.7rem;
         padding: 8px 10px;
       }
+
+      /* Responsive frames and boards */
+      .portrait-frame {
+        height: 320px;
+      }
+
+      .guestbook-card,
+      .bulletin-board {
+        padding: 20px;
+      }
+
+      .bulletin-board {
+        min-height: 320px;
+      }
+
+      .sandbox-card {
+        height: 360px;
+      }
+
+      /* Modal Responsiveness */
+      .modal-box {
+        max-height: 90vh;
+      }
+
+      .modal-body {
+        padding: 20px;
+        gap: 16px;
+      }
+
+      .modal-img-container {
+        height: 180px;
+      }
+
+      .modal-title {
+        font-size: 1.5rem;
+      }
+
+      .modal-action-footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .modal-action-footer .btn {
+        width: 100%;
+      }
+    }
+
+    /* ==========================================================================
+       PRINT STYLESHEET (PROFESSIONAL COMPACT PDF CV LAYOUT)
+       ========================================================================== */
+    @media print {
+      /* Reset defaults for high-quality printing */
+      *, *::before, *::after {
+        background: transparent !important;
+        color: #1E293B !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        transition: none !important;
+        transform: none !important;
+      }
+
+      body {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+        background-color: #FFFFFF !important;
+        color: #1E293B !important;
+        font-size: 10pt !important;
+        line-height: 1.4 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .bg-dot-grid {
+        background-image: none !important;
+      }
+
+      /* Hide interactive, non-essential web elements */
+      #navbar,
+      .theme-toggle-btn,
+      .btn-icon-wrapper,
+      .floating-shape,
+      .marquee-container,
+      .sandbox-card,
+      #guestbook,
+      .guestbook-section,
+      #contact .contact-form-panel,
+      .footer,
+      .scroll-top-btn,
+      .modal-overlay,
+      .timezone-widget,
+      .card-external-link,
+      .featured-badge,
+      .card-actions-wrapper,
+      .logo-dot,
+      .section-tag,
+      h3[style*="margin-top: 36px;"] {
+        display: none !important;
+      }
+
+      /* Maximize printable area & remove spacing */
+      .container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 15px !important;
+        margin: 0 auto !important;
+      }
+
+      .section {
+        padding: 18px 0 !important;
+        border-bottom: 1px dashed #CBD5E1 !important;
+        page-break-inside: avoid;
+      }
+
+      #contact {
+        border-bottom: none !important;
+      }
+
+      /* Page structure elements */
+      h1, h2, h3, h4, p {
+        color: #1E293B !important;
+      }
+
+      h2.section-title {
+        font-size: 14pt !important;
+        margin-top: 5px !important;
+        margin-bottom: 8px !important;
+        text-align: left !important;
+        border-bottom: 2px solid #1E293B !important;
+        padding-bottom: 4px !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .section-header {
+        text-align: left !important;
+        max-width: 100% !important;
+        margin: 0 0 12px 0 !important;
+      }
+
+      .section-header p {
+        font-size: 9.5pt !important;
+        margin-top: 4px !important;
+      }
+
+      /* Hide screen-only hero for standard print header */
+      #hero {
+        display: none !important;
+      }
+
+      /* Beautiful Custom Print Header */
+      .print-resume-header {
+        display: block !important;
+        margin-bottom: 20px !important;
+        padding-bottom: 12px !important;
+        border-bottom: 3px double #1E293B !important;
+      }
+
+      .print-header-top {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+      }
+
+      .print-contact-info {
+        text-align: right !important;
+        font-size: 9pt !important;
+        line-height: 1.4 !important;
+      }
+
+      /* About Section Layout */
+      .about-wrapper {
+        display: block !important;
+      }
+
+      .about-intro {
+        width: 100% !important;
+      }
+
+      .about-intro p {
+        font-size: 10pt !important;
+        margin-bottom: 10px !important;
+      }
+
+      /* Skills badges in print */
+      .skill-badges {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+        margin-top: 8px !important;
+      }
+
+      .skill-badge {
+        background: #F1F5F9 !important;
+        color: #1E293B !important;
+        border: 1px solid #CBD5E1 !important;
+        border-radius: 4px !important;
+        padding: 4px 8px !important;
+        font-size: 8.5pt !important;
+        box-shadow: none !important;
+        transform: none !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+      }
+
+      .skill-badge i {
+        display: none !important;
+      }
+
+      /* Projects Print Layout */
+      .projects-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        padding: 0 !important;
+      }
+
+      .sticker-card {
+        background: transparent !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 6px !important;
+        box-shadow: none !important;
+        padding: 14px !important;
+        gap: 8px !important;
+        transform: none !important;
+        page-break-inside: avoid;
+      }
+
+      .card-img-container {
+        display: none !important;
+      }
+
+      .card-title {
+        font-size: 12pt !important;
+        margin: 0 !important;
+        font-weight: 800 !important;
+      }
+
+      .card-meta {
+        margin: 2px 0 !important;
+        font-size: 8pt !important;
+      }
+
+      .card-desc {
+        font-size: 9.5pt !important;
+        line-height: 1.35 !important;
+        margin: 4px 0 !important;
+      }
+
+      .card-tags {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 4px !important;
+        margin-top: 4px !important;
+      }
+
+      .card-tag {
+        background: #F8FAFC !important;
+        border: 1px solid #CBD5E1 !important;
+        border-radius: 3px !important;
+        padding: 2px 5px !important;
+        font-size: 7.5pt !important;
+      }
+
+      .card-cta {
+        display: none !important;
+      }
+
+      /* Contact Details print styles */
+      #contact {
+        padding: 15px 0 !important;
+      }
+
+      .contact-wrapper {
+        display: block !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+      }
+
+      .contact-info-panel {
+        background: transparent !important;
+        color: #1E293B !important;
+        padding: 0 !important;
+        border: none !important;
+      }
+
+      .contact-info-title {
+        display: none !important;
+      }
+
+      .contact-info-content p {
+        font-size: 10pt !important;
+        margin-bottom: 8px !important;
+      }
+
+      .contact-details {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 16px !important;
+      }
+
+      .contact-item {
+        font-size: 9.5pt !important;
+      }
     }
   </style>
 </head>
 
 <body class="bg-dot-grid">
+
+  <!-- Print-Only Resume Header (Shown only during PDF generation / Print) -->
+  <div class="print-resume-header" style="display: none;">
+    <div class="print-header-top" style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 3px double var(--border-color); padding-bottom: 12px; margin-bottom: 16px;">
+      <div>
+        <h1 style="font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 800; color: #1E293B; margin: 0;">Zulaiha Shazreena</h1>
+        <p style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 700; color: #8B5CF6; margin: 4px 0 0 0; text-transform: uppercase; letter-spacing: 0.05em;">Creative Frontend Engineer & Visual Specialist</p>
+      </div>
+      <div class="print-contact-info" style="text-align: right; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 9px; line-height: 1.5; color: #1E293B;">
+        <div><strong>Email:</strong> shazreenazulaiha@gmail.com</div>
+        <div><strong>Location:</strong> Kuala Lumpur, Malaysia</div>
+        <div><strong>GitHub:</strong> github.com/shazreenazulaiha</div>
+        <div><strong>Portfolio:</strong> shazreenazulaiha.github.io</div>
+      </div>
+    </div>
+  </div>
 
   <!-- ==================== STICKER NAVIGATION ==================== -->
   <header class="container navbar" id="navbar">
@@ -1794,10 +2195,18 @@
         ZULAIHA.DEV
       </a>
 
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#guestbook" class="nav-link">Guestbook</a></li>
+        <li class="mobile-only-actions">
+          <button onclick="window.print()" class="btn btn-secondary" style="width: 100%; padding: 10px 16px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <i data-lucide="file-text" style="width: 14px; height: 14px;"></i> PDF CV
+          </button>
+        </li>
+        <li class="mobile-only-actions" style="margin-top: 4px;">
+          <a href="#contact" class="btn btn-secondary" style="width: 100%; padding: 10px 16px; font-size: 0.95rem; display: block; text-align: center;">Hire Me</a>
+        </li>
       </ul>
 
       <div class="nav-actions">
@@ -1807,8 +2216,19 @@
             <i data-lucide="sun" style="width: 10px; height: 10px; color: var(--border-color)"></i>
           </div>
         </button>
-        <a href="#contact" class="btn btn-secondary" style="padding: 8px 20px; font-size: 0.95rem;">Hire Me</a>
+        
+        <!-- PDF Export Button -->
+        <button onclick="window.print()" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.95rem; display: flex; align-items: center; gap: 6px;" title="Cetak / Muat Turun Resume PDF">
+          <i data-lucide="file-text" style="width: 14px; height: 14px;"></i> PDF CV
+        </button>
+        
+        <a href="#contact" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.95rem;">Hire Me</a>
       </div>
+
+      <!-- Hamburger Menu Button -->
+      <button class="menu-toggle-btn" id="menu-toggle" aria-label="Toggle Mobile Menu" title="Toggle Navigation Menu">
+        <i data-lucide="menu"></i>
+      </button>
     </nav>
   </header>
 
@@ -1825,8 +2245,9 @@
           <span class="highlight-pink">Wild Decoration.</span>
         </h1>
         <p class="hero-desc">
-          Hello! I'm <strong>Zulaiha Shazreena</strong>, a digital system designer and
-          developer who combines modern design with smart functionality to create interactive and user-friendly experiences.
+          Hello! I'm <strong>Zulaiha Shazreena</strong>. I design and build highly tactile digital playgrounds. By
+          mixing robust functional grids with cheerful geometric shapes, I turn interfaces into interactive sticker
+          books.
         </p>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-primary">
@@ -1835,6 +2256,15 @@
               <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
             </div>
           </a>
+          
+          <!-- PDF Export Button in Hero -->
+          <button onclick="window.print()" class="btn btn-secondary" style="display: flex; align-items: center; gap: 8px;">
+            Cetak PDF CV
+            <div class="btn-icon-wrapper">
+              <i data-lucide="printer" style="width: 16px; height: 16px;"></i>
+            </div>
+          </button>
+          
           <a href="#contact" class="btn btn-secondary">Let's Chat!</a>
         </div>
       </div>
@@ -2177,6 +2607,32 @@
     document.addEventListener('DOMContentLoaded', () => {
       // Initialize Lucide Icons
       lucide.createIcons();
+
+      // --- MOBILE NAVIGATION MENU TOGGLER ---
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          const isActive = navLinks.classList.toggle('active');
+          if (isActive) {
+            menuToggle.innerHTML = `<i data-lucide="x"></i>`;
+          } else {
+            menuToggle.innerHTML = `<i data-lucide="menu"></i>`;
+          }
+          lucide.createIcons();
+        });
+
+        // Close mobile menu when a link is clicked
+        const links = navLinks.querySelectorAll('.nav-link, .btn');
+        links.forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.innerHTML = `<i data-lucide="menu"></i>`;
+            lucide.createIcons();
+          });
+        });
+      }
 
       // --- 1. LIGHT / DARK VIBE TOGGLE SYSTEM ---
       const themeToggleBtn = document.getElementById('theme-toggle');
@@ -2558,5 +3014,3 @@
 </body>
 
 </html>
-
-make it responsive
